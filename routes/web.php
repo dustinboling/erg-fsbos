@@ -16,3 +16,6 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
 Route::resource('listings', 'ListingsController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
