@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Willamette Valley FSBOs - Contact Us')
 

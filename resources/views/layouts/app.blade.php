@@ -33,7 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/listings">Search Listings</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
