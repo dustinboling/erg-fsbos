@@ -15,14 +15,17 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('street_address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
             $table->integer('price');
             $table->integer('beds');
             $table->integer('baths');
             $table->integer('half_baths');
             $table->integer('sqft');
-            $table->string('street_address');
-            $table->string('city');
             $table->string('community');
+            $table->string('neighborhood');
             $table->text('description');
             $table->timestamps();
         });
