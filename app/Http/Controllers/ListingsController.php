@@ -14,7 +14,7 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        $listings = Listing::all();
+        $listings = Listing::orderBy('price', 'desc')->get();
 
         return view('listings.index', compact('listings'));
     }

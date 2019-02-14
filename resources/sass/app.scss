@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 // Variables
 @import 'variables';
@@ -11,4 +11,21 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-fsbos {
+    background-color: $secondary;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 300;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.btn-primary {
+  color: #FFF;
 }

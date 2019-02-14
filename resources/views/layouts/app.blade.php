@@ -7,25 +7,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,9 +30,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/listings">Search</a></li>
                         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/listings">Search Listings</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -71,6 +70,12 @@
                         @endguest
                     </ul>
                 </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel d-print">
+            <div class="container">
+                <div class="navbar-nav navbar-brand mr-auto"><a class="nav-link" style="color:#26A7DE" href="/">WillametteValley<span style="font-weight:900;color:#43C143">FSBOs</span>.com</a></div>
+                <div class="navbar-nav navbar-brand ml-auto"><a class="nav-link" href="https://www.eugenerealtygroup.com/"><img src="https://t.realgeeks.media/thumbnail/SPS72pEcMcY_7kEInO_fxKeu9tw=/fit-in/200x43/filters:format(png)/https://u.realgeeks.media/eugenerealtygroup/EugeneRealty-web-logo_licensed.png" alt="Eugene Realty Group"></a></div>
             </div>
         </nav>
 
