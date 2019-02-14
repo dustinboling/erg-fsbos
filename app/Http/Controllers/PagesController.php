@@ -6,23 +6,24 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function home() 
+    public function home()
     {
-        return view('welcome');
+        $listings = \App\Listing::latest()->take(9)->get();
+        return view('home', compact('listings'));
     }
 
-    public function about() 
+    public function about()
     {
-        return view('about');
+        return view('pages.about');
     }
 
-    public function contact() 
+    public function contact()
     {
-        return view('contact');
+        return view('pages.contact');
     }
 
-    public function services() 
+    public function services()
     {
-        return view('services');
+        return view('pages.services');
     }
 }
