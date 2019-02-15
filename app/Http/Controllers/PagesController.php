@@ -8,7 +8,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $listings = \App\Listing::latest()->take(9)->get();
+        $listings = \App\Listing::latest()->take(8)->get();
         return view('home', compact('listings'));
     }
 

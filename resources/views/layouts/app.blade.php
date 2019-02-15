@@ -4,19 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
-    <!-- Scripts -->
+    {{-- Scripts --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
+    {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -28,7 +24,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/listings">Search</a></li>
@@ -37,9 +33,9 @@
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- Right Side Of Navbar --}}
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        {{-- Authentication Links --}}
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -82,6 +78,19 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            <nav class="navbar navbar-dark bg-primary text-white py-3">
+                <div class="container">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">&copy; 2019 Eugene Realty Group LLC</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="https://www.eugenerealtygroup.com/" class="nav-link">Presented by Eugene Realty Group</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </footer>
     </div>
 </body>
 </html>
