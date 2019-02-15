@@ -19,6 +19,7 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/services', 'PagesController@services')->name('services');
 
 Route::resource('listings', 'ListingsController');
+Route::resource('cities', 'CitiesController');
 
 Auth::routes();
 Route::get('/my-account', 'UsersController@index')->name('account');

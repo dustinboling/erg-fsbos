@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Willamette Valley FSBOs - Search Listings')
+@section('title', 'Willamette Valley Homes For Sale by Owner - Willamette Valley FSBOs')
 
 @section('content')
 <div class="container">
