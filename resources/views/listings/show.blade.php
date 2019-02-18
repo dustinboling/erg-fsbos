@@ -56,5 +56,19 @@
            </div>
        </div>
    </div>
+   <div class="row py-5">
+        <div class="col-md text-center">
+            <h3 class="text-muted">
+                @isset($similarListings)
+                    Here are <span style="font-weight:700">{{ $similarListings->count() }} </span>
+                @endisset
+                More For Sale by Owner Listings in {{ $listing->city }}
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        @each('listings.partials.listingcard', $similarListings, 'listing')
+    </div>
 </div>
 @endsection

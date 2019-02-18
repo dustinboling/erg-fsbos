@@ -49,8 +49,9 @@ class ListingsController extends Controller
     public function show(Listing $listing)
     {
         $media = $listing->getFirstMedia('listing');
+        $similarListings = Listing::latest()->take(8)->get();
 
-        return view('listings.show', compact('listing', 'media'));
+        return view('listings.show', compact('listing', 'media', 'similarListings'));
     }
 
     /**

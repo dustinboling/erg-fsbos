@@ -11,7 +11,7 @@
         <div class="col-md text-center">
             <h3 class="text-muted">
                 @isset($listings)
-                    Here are <span style="font-weight:900">{{ $listings->count() }} </span>
+                    Here are <span style="font-weight:700">{{ $listings->count() }} </span>
                 @endisset
                 For Sale by Owner Listings in the Willamette Valley
             </h3>
