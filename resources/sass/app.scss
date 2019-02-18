@@ -88,3 +88,11 @@
     text-transform: uppercase;
     width: 100%;
 }
+
+// Listing Show
+.listing .table td,
+.listing .table th {
+    padding: .25rem;
+    vertical-align: middle;
+    border-top: 0;
+}
