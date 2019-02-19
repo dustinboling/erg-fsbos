@@ -41,7 +41,7 @@
     <div class="row py-5">
         <div class="col-md text-center">
             <h3 class="text-muted">
-                Here are <span style="font-weight:700">{{ $listings->count() }} </span> of the Newest For Sale by Owner Listings in the Willamette Valley
+                Here are <span style="font-weight:700">{{ $listings->count() }} </span> of the Latest Homes For Sale by Owner in the Willamette Valley
             </h3>
         </div>
     </div>
