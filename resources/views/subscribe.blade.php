@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row mb-4">
         <div class="col">
-            <h1>Launching Soon!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et quos voluptate illo ab, non ratione reiciendis quis repudiandae eos quasi voluptatibus ad quia sapiente dolores, vero. Accusantium, placeat a veritatis!</p>
+            <h1>We'll Be Launching Very Soon!</h1>
+            <p>Do you want to be notified when we launch? Use this form to subscribe to updates:</p>
 
             <form action="{{ url('subscribe') }}" method="POST">
                 @csrf
@@ -30,6 +30,18 @@
                     </div>
                 </div>
             </form>
+            <hr class="my-4">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="mb-3">Other Resources</h2>
+            <dl>
+                <dt>Information about buying a home</dt>
+                <dd><a target="_blank" href="https://www.eugenerealtygroup.com/buying/">www.eugenerealtygroup.com/buying</a></dd>
+                <dt>Top 10 Ways to Sell Faster and for More Money</dt>
+                <dd><a target="_blank" href="https://eugenerealtygroup.realgeeks.com/blog/top-10-ways-sell-faster-and-more-money/">eugenerealtygroup.realgeeks.com/blog/top-10-ways-sell-faster-and-more-money</a></dd>
+            </dl>
         </div>
     </div>
 
