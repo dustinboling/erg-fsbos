@@ -13,13 +13,14 @@
 Route::get('/', function () {
     return redirect()->route('home');
 });
-Route::get('/home', 'PagesController@home')->name('home');
+Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/services', 'PagesController@services')->name('services');
 
-Route::resource('listings', 'ListingsController');
-Route::resource('cities', 'CitiesController');
+Route::resource('subscribe', 'SubscribersController');
+Route::resource('homes', 'ListingsController')->middleware('auth');
+Route::resource('cities', 'CitiesController')->middleware('auth');
 
 Auth::routes();
 Route::get('/my-account', 'UsersController@index')->name('account');
