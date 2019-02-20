@@ -1,7 +1,7 @@
 @isset($listing)
         <div class="col-md-3">
             <div class="card listing-card" style="margin-bottom:30px;">
-                <a href="/listings/{{ $listing->id }}">
+                <a href="{{ route('homes.show', $listing->id) }}">
                     <img src="https://picsum.photos/308/231/?random&{{ rand() }}" class="card-img-top img-fluid" alt="{{ $listing->street_address }}">
                 </a>
                 <ul class="list-group list-group-flush">
@@ -22,7 +22,7 @@
                         Web ID: <span class="text-muted">ERG-00{{ $listing->id }}</span>
                     </li> --}}
                     <li class="list-group-item">
-                        <a href="/listings/{{ $listing->id }}" class="btn btn-details">More Details</a>
+                        <a href="{{ route('homes.show', $listing->id) }}" class="btn btn-details">More Details</a>
                     </li>
                 </ul>
             </div>
