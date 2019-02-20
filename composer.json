@@ -14,7 +14,8 @@
         "laravel/framework": "5.7.*",
         "laravel/nova": "~1.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-newsletter": "^4.2"
+        "spatie/laravel-newsletter": "^4.2",
+        "guzzlehttp/guzzle": "~5.3|~6.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
