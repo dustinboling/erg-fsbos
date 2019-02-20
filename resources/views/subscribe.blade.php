@@ -12,20 +12,20 @@
             <form action="{{ url('subscribe') }}" method="POST">
                 @csrf
                 <div class="form-row">
-                    <div class="col">
+                    <div class="col-6 col-md mb-2">
                         <input type="text" class="form-control" name="firstName" placeholder="First name">
                     </div>
-                    <div class="col">
+                    <div class="col-6 col-md mb-2">
                         <input type="text" class="form-control" name="lastName" placeholder="Last name">
                     </div>
-                    <div class="col">
+                    <div class="col-md mb-2">
                         <input type="email" class="form-control" name="email" placeholder="Email Address">
                     </div>
                     {{-- <div class="col">
                         <input type="checkbox" value="1" name="group[555][1]" id="mce-group[555]-555-0"><label for="mce-group[555]-555-0"> Buying</label><br>
                         <input type="checkbox" value="2" name="group[555][2]" id="mce-group[555]-555-1"><label for="mce-group[555]-555-1"> Selling</label>
                     </div> --}}
-                    <div class="col">
+                    <div class="col-md text-right">
                         <button type="submit" class="btn btn-primary" value="submit">Subscribe</button>
                     </div>
                 </div>
