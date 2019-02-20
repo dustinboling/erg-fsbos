@@ -25,19 +25,19 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="First slide">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Second slide">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Third slide">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Third slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Fourth slide">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Fourth slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Fifth slide">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/825/470/?random&{{ rand() }}" alt="Fifth slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
