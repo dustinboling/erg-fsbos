@@ -83,9 +83,12 @@
 .listing-card .btn-details,
 .listing-summary .btn-details {
     background: $blue;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     color: white;
     font-size: 0.75rem;
     font-weight: $font-weight-medium;
+    letter-spacing: 0.1rem;
     text-transform: uppercase;
     width: 100%;
 }
