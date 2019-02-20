@@ -41,9 +41,9 @@
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                        </li> --}}
                         @endif
                         @else
                         <li class="nav-item dropdown">
@@ -56,53 +56,53 @@
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
-                            </a>
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
-                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel d-print">
-        <div class="container">
-            <div class="navbar-nav navbar-brand mr-auto"><a class="nav-link" style="color:#26A7DE" href="/">WillametteValley<span style="font-weight:900;color:#43C143">FSBOs</span>.com</a></div>
-            <div class="navbar-nav navbar-brand ml-auto"><a class="nav-link" href="https://www.eugenerealtygroup.com/"><img src="https://t.realgeeks.media/thumbnail/SPS72pEcMcY_7kEInO_fxKeu9tw=/fit-in/200x43/filters:format(png)/https://u.realgeeks.media/eugenerealtygroup/EugeneRealty-web-logo_licensed.png" alt="Eugene Realty Group"></a></div>
-        </div>
-    </nav>
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel d-print">
+            <div class="container">
+                <div class="navbar-nav navbar-brand mr-auto"><a class="nav-link" style="color:#26A7DE" href="/">WillametteValley<span style="font-weight:900;color:#43C143">FSBOs</span>.com</a></div>
+                <div class="navbar-nav navbar-brand ml-auto"><a class="nav-link" href="https://www.eugenerealtygroup.com/"><img src="https://t.realgeeks.media/thumbnail/SPS72pEcMcY_7kEInO_fxKeu9tw=/fit-in/200x43/filters:format(png)/https://u.realgeeks.media/eugenerealtygroup/EugeneRealty-web-logo_licensed.png" alt="Eugene Realty Group"></a></div>
+            </div>
+        </nav>
 
-    <main class="py-4">
-        @if (session('status'))
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="alert alert-success">
-                        {{ session('status') }}
+        <main class="py-4">
+            @if (session('status'))
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        @endif
-        @yield('content')
-    </main>
+            @endif
+            @yield('content')
+        </main>
 
-    <footer>
-        <nav class="navbar navbar-dark bg-primary text-white py-3">
-            <div class="container">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a href="#" class="nav-link">&copy; 2019 Eugene Realty Group LLC</a></li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="https://www.eugenerealtygroup.com/" class="nav-link">Presented by Eugene Realty Group</a></li>
-                </ul>
-            </div>
-        </nav>
-    </footer>
-</div>
+        <footer>
+            <nav class="navbar navbar-dark bg-primary text-white py-3">
+                <div class="container">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">&copy; 2019 Eugene Realty Group LLC</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="https://www.eugenerealtygroup.com/" class="nav-link">Presented by Eugene Realty Group</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </footer>
+    </div>
 </body>
 </html>
