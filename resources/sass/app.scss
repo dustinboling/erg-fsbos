@@ -53,12 +53,13 @@ h4, h5, h6 {
     line-height: 1;
 }
 
-.btn-primary {
-  color: white;
+#wvfsbos .wvfsbos-logo {
+    font-family: futura-pt-condensed, sans-serif;
+    font-size: 3.125rem;
 }
 
-#wvfsbos {
-    display: none;
+.btn-primary {
+  color: white;
 }
 
 // Listing Card
@@ -190,23 +191,13 @@ h4, h5, h6 {
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
 
-    .navbar-brand.wvfsbos {
-        display: none;
-    }
-
-    #wvfsbos {
-        display: block;
-    }
-
-    #wvfsbos .wvfsbos-logo {
-        font-family: futura-pt-condensed, sans-serif;
-        font-size: 3.75rem;
-    }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
+    #wvfsbos .wvfsbos-logo {
+        font-size: 3.75rem;
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
