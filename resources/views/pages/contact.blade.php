@@ -14,18 +14,25 @@
                             <div class="card-body">
                                 <form action="{{ route('contact') }}" method="post">
                                     @csrf
-                                    <div class="form-group">
-                                        <input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name">
+                                    <div class="form-row form-group">
+                                        <div class="col"><input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name"></div>
+                                        <div class="col"><input class="form-control" type="tel" name="phone" id="inputPhone" placeholder="Enter your phone number"></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-row form-group">
+                                        <div class="col">
                                             <input class="form-control" type="email" name="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="10" placeholder="Type your message"></textarea>
                                     </div>
-                                    <div class="text-right">
-                                        <button type="submit" class="btn btn-primary">Send</button>
+                                    <div class="form-row form-group">
+                                        <div class="col">
+                                            <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="10" placeholder="Type your message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-row form-group text-right">
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-primary">Send</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
