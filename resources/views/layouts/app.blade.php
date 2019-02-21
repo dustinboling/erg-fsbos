@@ -17,12 +17,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container">
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <a class="navbar-brand wvfsbos" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder">FSBOs</span>.com</a>
+                {{-- Collapsed on mobile: --}}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
@@ -65,15 +67,32 @@
                         </li>
                         @endguest
                     </ul>
+                </div> {{-- Collapsed on mobile --}}
+            </div>
+        </nav>
+        <div id="branding" class="shadow-sm bg-white">
+            <div class="container">
+                <div class="row py-4">
+                    <div id="wvfsbos" class="col-6-sm" style="line-height: 1.2;">
+                        <p class="wvfsbos-logo text-secondary mb-0" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder text-primary">FSBOs</span>.com</p>
+                        <p class="mb-0 text-muted"><em>The Most Complete Collection of Homes For Sale by Owner in the Willamette Valley</em></p>
+                    </div>
+                    <div class="col col-5-sm ml-auto" style="line-height: 1.2;">
+                        <div class="card sponsor text-center">
+                            <div class="card-body">
+                                <a class="d-block float-left mt-2" href="https://www.eugenerealtygroup.com/" target="_blank"><img src="{{ asset('eugene-realty-logo.png') }}" alt="Eugene Realty Group"></a>
+                                <p class="card-text"><em>This free public listing service is sponsored by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon.</em></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel d-print">
-            <div class="container">
-                <div class="navbar-nav navbar-brand mr-auto"><a class="nav-link" style="color:#26A7DE" href="/">WillametteValley<span style="font-weight:900;color:#43C143">FSBOs</span>.com</a></div>
-                <div class="navbar-nav navbar-brand ml-auto"><a class="nav-link" href="https://www.eugenerealtygroup.com/"><img src="https://t.realgeeks.media/thumbnail/SPS72pEcMcY_7kEInO_fxKeu9tw=/fit-in/200x43/filters:format(png)/https://u.realgeeks.media/eugenerealtygroup/EugeneRealty-web-logo_licensed.png" alt="Eugene Realty Group"></a></div>
-            </div>
-        </nav>
+        </div>
+
+
+
+
+
 
         <main class="py-4">
             @if (session('status'))

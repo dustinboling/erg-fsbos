@@ -1,6 +1,6 @@
 @isset($listing)
         <div class="col-md-3">
-            <div class="card listing-card" style="margin-bottom:30px;">
+            <div class="card listing-card shadow-sm mb-4">
                 {{--  CAROUSEL  --}}
                 <div id="carouselListing{{ $listing->id }}" class="carousel slide" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">

@@ -13,15 +13,15 @@
                     <li data-target="#carouselHomeIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselHomeIndicators" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner">
+                <div class="carousel-inner shadow-sm rounded">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 rounded" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="First slide">
+                        <img class="d-block w-100" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 rounded" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="Second slide">
+                        <img class="d-block w-100" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 rounded" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="Third slide">
+                        <img class="d-block w-100" src="https://picsum.photos/1280/600/?random&{{ rand() }}" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselHomeIndicators" role="button" data-slide="prev">

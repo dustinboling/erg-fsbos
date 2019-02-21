@@ -10,6 +10,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+    background-color: #F2F2F2;
+}
+footer {
+    position: relative;
+    left: 0;
+    top: auto;
+    right: 0;
+    bottom: 0;
+}
 .navbar-laravel {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -26,14 +36,20 @@
   text-transform: uppercase;
 }
 
-.navbar-brand {
+.navbar-brand.wvfsbos {
+    color: white;
     font-family: futura-pt-condensed, sans-serif;
     font-weight: $font-weight-medium;
-    font-size: 3rem;
+    font-size: 1.8rem;
+    line-height: 1;
 }
 
 .btn-primary {
   color: white;
+}
+
+#wvfsbos {
+    display: none;
 }
 
 // Listing Card
@@ -152,4 +168,39 @@
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border: 1px solid $border-color;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+    .navbar-brand.wvfsbos {
+        display: none;
+    }
+
+    #wvfsbos {
+        display: block;
+    }
+
+    #wvfsbos .wvfsbos-logo {
+        font-family: futura-pt-condensed, sans-serif;
+        font-size: 3.75rem;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }
