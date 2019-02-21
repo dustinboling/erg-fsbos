@@ -13,13 +13,21 @@
 body {
     background-color: #F2F2F2;
 }
-footer {
-    position: relative;
-    left: 0;
-    top: auto;
-    right: 0;
-    bottom: 0;
+
+h1, h2, h3 {
+    color: $primary;
+    font-weight: $font-weight-light;
 }
+
+h4, h5, h6 {
+    color: $secondary;
+    font-weight: $font-weight-demi;
+}
+
+#page-title {
+    font-weight: $font-weight-demi;
+}
+
 .navbar-laravel {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -31,7 +39,7 @@ footer {
 
 .navbar-dark .navbar-nav .nav-link {
   color: white;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-book;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }

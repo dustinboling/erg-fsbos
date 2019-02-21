@@ -5,13 +5,13 @@
                 <div id="carouselListing{{ $listing->id }}" class="carousel slide" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100 rounded" src="https://picsum.photos/253/190/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100 rounded" src="https://picsum.photos/253/190/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100 rounded" src="https://picsum.photos/253/190/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
+                                <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city }}">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselListing{{ $listing->id }}" role="button" data-slide="prev">

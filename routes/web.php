@@ -14,7 +14,6 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
-Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/services', 'PagesController@services')->name('services');
 

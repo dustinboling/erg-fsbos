@@ -16,7 +16,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="h-100">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container">
 
@@ -28,10 +28,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('homes.index') }}">{{ __('Search') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">{{ __('Services') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('homes.index') }}">{{ __('Buy') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('services') }}">{{ __('Sell') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                     </ul>
 
@@ -70,7 +69,7 @@
                 </div> {{-- Collapsed on mobile --}}
             </div>
         </nav>
-        <div id="branding" class="shadow-sm bg-white">
+        <div id="branding" class="shadow-sm bg-white mb-4">
             <div class="container">
                 <div class="row py-4">
                     <div id="wvfsbos" class="col-7" style="line-height: 1.2;">
@@ -89,12 +88,7 @@
             </div>
         </div>
 
-
-
-
-
-
-        <main class="py-4">
+        <main style="min-height:600px">
             @if (session('status'))
             <div class="container">
                 <div class="row">
@@ -110,18 +104,89 @@
             @yield('content')
         </main>
 
-        <footer>
-            <nav class="navbar navbar-dark bg-primary text-white py-3">
-                <div class="container">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a href="#" class="nav-link">&copy; 2019 Eugene Realty Group LLC</a></li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="https://www.eugenerealtygroup.com/" class="nav-link">Presented by Eugene Realty Group</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </footer>
+        <!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+          <!-- Grid row -->
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+              <!-- Content -->
+              <h5 class="text-uppercase">Free Services to FSBO Sellers</h5>
+              <p>Here you can use rows and columns here to organize your footer content.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Browse Cities</h5>
+
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="#!">Eugene</a>
+                  </li>
+                  <li>
+                    <a href="#!">Springfield</a>
+                  </li>
+                  <li>
+                    <a href="#!">Junction City</a>
+                  </li>
+                  <li>
+                    <a href="#!">Brownsville</a>
+                  </li>
+                </ul>
+
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Communities</h5>
+
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="#!">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!">Link 4</a>
+                  </li>
+                </ul>
+
+              </div>
+              <!-- Grid column -->
+
+          </div>
+          <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">&copy; {{ date('Y') }} Copyright
+          <a href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+        </div>
+        <!-- Copyright -->
+
+      </footer>
+      <!-- Footer -->
     </div>
 </body>
 </html>
