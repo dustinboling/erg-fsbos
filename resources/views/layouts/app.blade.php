@@ -117,7 +117,7 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
               <!-- Content -->
-              <h5 class="text-uppercase">Free Services to FSBO Sellers</h5>
+              <h5>Free Services to FSBO Sellers</h5>
               <p>Here you can use rows and columns here to organize your footer content.</p>
 
             </div>
@@ -153,7 +153,7 @@
               <div class="col-md-3 mb-md-0 mb-3">
 
                 <!-- Links -->
-                <h5 class="text-uppercase">Communities</h5>
+                <h5>Communities</h5>
 
                 <ul class="list-unstyled">
                   <li>
