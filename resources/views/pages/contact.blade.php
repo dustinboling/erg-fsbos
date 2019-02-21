@@ -29,7 +29,7 @@
                                             <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="10" placeholder="Type your message"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-row form-group text-right">
+                                    <div class="form-row text-right">
                                         <div class="col">
                                             <button type="submit" class="btn btn-primary">Send</button>
                                         </div>
