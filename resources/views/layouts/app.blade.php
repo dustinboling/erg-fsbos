@@ -118,7 +118,7 @@
 
               <!-- Content -->
               <h5>Free Services to FSBO Sellers</h5>
-              <p>Here you can use rows and columns here to organize your footer content.</p>
+              <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
 
             </div>
             <!-- Grid column -->
@@ -129,7 +129,7 @@
             <div class="col-md-3 mb-md-0 mb-3">
 
                 <!-- Links -->
-                <h5 class="text-uppercase">Browse Cities</h5>
+                <h5>Browse Cities</h5>
 
                 <ul class="list-unstyled">
                   <li>
@@ -157,16 +157,16 @@
 
                 <ul class="list-unstyled">
                   <li>
-                    <a href="#!">Link 1</a>
+                    <a href="#!">Santa Clara</a>
                   </li>
                   <li>
-                    <a href="#!">Link 2</a>
+                    <a href="#!">Amazon</a>
                   </li>
                   <li>
-                    <a href="#!">Link 3</a>
+                    <a href="#!">College Hill</a>
                   </li>
                   <li>
-                    <a href="#!">Link 4</a>
+                    <a href="#!">Crest Drive</a>
                   </li>
                 </ul>
 
