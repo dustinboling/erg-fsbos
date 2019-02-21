@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="form-row text-right">
                                         <div class="col">
-                                            <button type="submit" class="btn btn-primary">Send</button>
+                                            <button type="submit" class="btn btn-primary">Send Message</button>
                                         </div>
                                     </div>
                                 </form>
