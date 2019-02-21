@@ -73,14 +73,14 @@
         <div id="branding" class="shadow-sm bg-white">
             <div class="container">
                 <div class="row py-4">
-                    <div id="wvfsbos" class="col-6-sm" style="line-height: 1.2;">
+                    <div id="wvfsbos" class="col-7" style="line-height: 1.2;">
                         <p class="wvfsbos-logo text-secondary mb-0" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder text-primary">FSBOs</span>.com</p>
                         <p class="mb-0 text-muted"><em>The Most Complete Collection of Homes For Sale by Owner in the Willamette Valley</em></p>
                     </div>
-                    <div class="col col-5-sm ml-auto" style="line-height: 1.2;">
+                    <div class="col ml-auto" style="line-height: 1.2;">
                         <div class="card sponsor text-center">
                             <div class="card-body">
-                                <a class="d-block float-left mt-2" href="https://www.eugenerealtygroup.com/" target="_blank"><img src="{{ asset('eugene-realty-logo.png') }}" alt="Eugene Realty Group"></a>
+                                <a class="d-block float-left mt-2" href="https://www.eugenerealtygroup.com/" target="_blank"><img src="{{ asset('img/eugene-realty-logo.png') }}" alt="Eugene Realty Group" width="116px" height="50px"></a>
                                 <p class="card-text"><em>This free public listing service is sponsored by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon.</em></p>
                             </div>
                         </div>
