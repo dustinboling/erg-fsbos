@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-sm-4 col-md-4 col-lg-2 mb-2">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="1500" aria-label="1500" aria-describedby="basic-addon2"  name="sqft">
+                            <input type="number" class="form-control" placeholder="1500" aria-label="1500" aria-describedby="basic-addon2"  name="sqft">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">Min SqFt</span>
                             </div>
