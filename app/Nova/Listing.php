@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -46,6 +47,7 @@ class Listing extends Resource
     {
         return [
             Number::make('Price')->rules('required')->sortable(),
+
             new Panel('Location Information', $this->locationFields()),
             new Panel('Features', $this->featureFields()),
             ID::make()->sortable(),
@@ -67,7 +69,7 @@ class Listing extends Resource
     {
         return [
             Text::make('Street Address')->rules('required'),
-            Text::make('City')->rules('required')->sortable(),
+            BelongsTo::make('City')->searchable(),
             Text::make('State')->sortable(),
             Text::make('Zip')->sortable(),
             Text::make('Community')->sortable()->hideFromIndex(),

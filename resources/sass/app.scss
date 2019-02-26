@@ -10,6 +10,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.testing-highlight {
+    background-color: #563d7c26;
+    border: 1px solid #563d7c26;
+}
+
 body {
     background-color: #F2F2F2;
 }
@@ -107,7 +112,7 @@ h4, h5, h6 {
 }
 
 .listing-card .btn-details,
-.listing-summary .btn-details {
+.listing-details .btn-details {
     background: $blue;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -120,64 +125,38 @@ h4, h5, h6 {
 }
 
 // Listing Show
-.listing-summary .price {
-    border: 1px solid $border-color;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+.listing-details {
+    background: #f2f2f2;
+}
+
+.listing-detail {
+    line-height: 1;
+}
+
+.listing-details .price {
     color:#43C143;
     font-size: 1.875rem;
     font-weight: $font-weight-heavy;
 }
 
-.listing-summary .col-6 {
-    line-height: 1.2;
-}
-
-.listing-summary small {
+.listing-details small {
     color: $border-color;
-    display: block;
     font-size: 1.1rem;
 }
 
-.listing-summary .beds,
-.listing-summary .baths,
-.listing-summary .sqft,
-.listing-summary .per-sqft {
-    border-left: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+.listing-details .beds,
+.listing-details .baths,
+.listing-details .sqft,
+.listing-details .per-sqft {
     font-size: 1.75rem;
 }
 
-.listing-summary .baths,
-.listing-summary .per-sqft {
-    border-right: 1px solid $border-color;
+.description {
+    font-size: 1.125rem;
 }
 
-.listing-summary .location {
-    border-left: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    padding: 0;
-}
-
-.listing-summary .table {
-    margin-bottom: 0;
-}
-
-.listing-summary .table td,
-.listing-summary .table th {
-    padding: .25rem;
-    vertical-align: middle;
-    border-top: 0;
-}
-
-.listing-summary .table th {
-    font-weight: $font-weight-demi;
-}
-
-.listing-summary .call-to-action {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border: 1px solid $border-color;
+.page-footer {
+    background: $primary;
 }
 
 // Extra small devices (portrait phones, less than 576px)

@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -44,6 +45,7 @@ class City extends Resource
     {
         return [
             ID::make()->sortable(),
+            HasMany::make('Listing'),
             Text::make('Name'),
             Trix::make('Content'),
             Images::make('Photos', 'listing') // second parameter is the media collection name

@@ -42,7 +42,7 @@
                         Web ID: <span class="text-muted">ERG-00{{ $listing->id }}</span>
                     </li> --}}
                 </ul>
-                <a href="{{ route('homes.show', $listing->id) }}" class="btn btn-details py-2">More Details</a>
+                <a href="{{ route('listings.show', $listing->id) }}" class="btn btn-details py-2">More Details</a>
             </div>
 
         </div>

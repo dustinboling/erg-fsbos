@@ -33,4 +33,9 @@ class Listing extends Model implements HasMedia
     {
         $this->addMediaCollection('listing');
     }
+
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
 }

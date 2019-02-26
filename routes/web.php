@@ -18,7 +18,7 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/services', 'PagesController@services')->name('services');
 
 Route::resource('subscribe', 'SubscribersController');
-Route::resource('homes', 'ListingsController')->middleware('auth');
+Route::resource('listings', 'ListingsController')->middleware('auth');
 Route::resource('cities', 'CitiesController')->middleware('auth');
 
 Auth::routes();

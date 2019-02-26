@@ -6,7 +6,7 @@
         <div class="card-body">
             {{-- <h5 class="card-title">Search For Sale by Owner listings in Lane County, Oregon</h5> --}}
             {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
-        <form class="" method="get" action="{{ route('homes.index') }}">
+        <form class="" method="get" action="{{ route('listings.index') }}">
                 <div class="form-row">
                     <div class="col-6 col-sm-4 col-md-4 col-lg-2 mb-2">
                         <div class="input-group">

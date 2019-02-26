@@ -29,7 +29,7 @@
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('homes.index') }}">{{ __('Buy') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('listings.index') }}">{{ __('Buy') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('services') }}">{{ __('Sell') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                     </ul>
@@ -106,7 +106,7 @@
         </main>
 
         <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
+<footer class="page-footer font-small text-light bg-primary pt-4">
 
         <!-- Footer Links -->
         <div class="container text-center text-md-left">
@@ -118,7 +118,7 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
               <!-- Content -->
-              <h5>Free Services to FSBO Sellers</h5>
+              <h5 class="text-light">Free Services to FSBO Sellers</h5>
               <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
 
             </div>
@@ -127,47 +127,23 @@
             <hr class="clearfix w-100 d-md-none pb-3">
 
             <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
+            <div class="col-md-6 mb-md-0 mb-3">
 
                 <!-- Links -->
-                <h5>Browse Cities</h5>
+                <h5 class="text-light">Browse Cities</h5>
 
-                <ul class="list-unstyled">
+                <ul class="list-unstyled d-flex flex-wrap justify-content-between">
                   <li>
-                    <a href="#!">Eugene</a>
+                    <a class="text-light" href="#!">Eugene</a>
                   </li>
                   <li>
-                    <a href="#!">Springfield</a>
+                    <a class="text-light" href="#!">Springfield</a>
                   </li>
                   <li>
-                    <a href="#!">Junction City</a>
+                    <a class="text-light" href="#!">Junction City</a>
                   </li>
                   <li>
-                    <a href="#!">Brownsville</a>
-                  </li>
-                </ul>
-
-              </div>
-              <!-- Grid column -->
-
-              <!-- Grid column -->
-              <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5>Communities</h5>
-
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="#!">Santa Clara</a>
-                  </li>
-                  <li>
-                    <a href="#!">Amazon</a>
-                  </li>
-                  <li>
-                    <a href="#!">College Hill</a>
-                  </li>
-                  <li>
-                    <a href="#!">Crest Drive</a>
+                    <a class="text-light" href="#!">Brownsville</a>
                   </li>
                 </ul>
 
@@ -181,8 +157,8 @@
         <!-- Footer Links -->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">&copy; {{ date('Y') }} Copyright
-          <a href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+        <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }} Copyright
+          <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
         </div>
         <!-- Copyright -->
 

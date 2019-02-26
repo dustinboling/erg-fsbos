@@ -9,12 +9,45 @@
            <h2 style="color:#26A7DE;font-weight:400;">Call <span style="color:#43C143;font-weight:700">1-855-555-1212</span> and enter code <span style="color:#43C143;font-weight:700">ERG{{ $listing->id }}</span> for a description of this property</h2>
        </div>
    </div>
-   <div class="row listing">
-
-       <div class="col-9 listing-media">
-           <div class="row">
-               <div class="col-12">
-                    {{--  CAROUSEL  --}}
+    <div class="row listing">
+       <div class="col">
+           <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm">
+                <ul class="listing-details d-flex flex-column flex-md-row text-center list-unstyled p-3 mb-2 rounded">
+                    <li class="price d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">${{ number_format($listing->price) }}</div>
+                    </li>
+                    <li class="beds d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">{{ $listing->beds }} <small>Beds</small></div>
+                    </li>
+                    <li class="baths d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">{{ $listing->baths }} <small>Baths</small></div>
+                    </li>
+                    <li class="sqft d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">{{ number_format($listing->sqft) }} <small>sqft</small></div>
+                    </li>
+                    <li class="per-sqft d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">${{ intdiv($listing->price, $listing->sqft) }} <small>$/sqft</small></div>
+                    </li>
+                    {{-- <li class="location d-flex listing-detail rounded px-4 px-0">
+                        <ul class="d-flex flex-column list-unstyled">
+                            <li class="location-area d-flex bg-light">
+                                <div class="mr-auto">Area</div>
+                                <div class="ml-auto">{{ $listing->community }}</div>
+                            </li>
+                            <li class="location-city d-flex">
+                                <div class="mr-auto">City</div>
+                                <div class="ml-auto">{{ $listing->city }}</div>
+                            </li>
+                            <li class="location-county d-flex bg-light">
+                                <div class="mr-auto">County</div>
+                                <div class="ml-auto">{{ $listing->county }}</div>
+                            </li>
+                        </ul>
+                    </li> --}}
+                </ul>{{-- Flex Container End --}}
+                {{-- IMAGES Start--}}
+                <div class="listing-media mb-2">
+                    {{--  CAROUSEL Start  --}}
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -49,40 +82,43 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-               </div>
-           </div>
-       </div>
-       <div class="col-3 listing-summary">
-           <div class="row">
-                <div class="col-12 price text-center py-4" style="">$239,000</div>
-                <div class="col-6 beds text-center py-4">3<small>Beds</small></div>
-                <div class="col-6 baths text-center py-4">2<small>Baths</small></div>
-                <div class="col-6 sqft text-center py-4">1,538<small>sqft</small></div>
-                <div class="col-6 per-sqft text-center py-4">$155<small>$/sqft</small></div>
-                <div class="col-12 location">
-                    <table class="table table-striped">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Area</th>
-                                <td class="text-right">{{ $listing->community }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">City</th>
-                                <td class="text-right">{{ $listing->city }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">County</th>
-                                <td class="text-right">{{ $listing->county }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {{-- CAROUSEL End --}}
                 </div>
-                <div class="col-12 call-to-action py-3">
-                    <a href="#" class="btn btn-details">Request more information</a>
+                <div class="description">
+                    {!! $listing->description !!}
                 </div>
+                {{-- IMAGES End --}}
            </div>
-       </div>
-   </div>
+           <div class="card listing-contact">
+                <div class="card-header font-weight-bolder">Request More About this Property</div>
+                <div class="card-body">
+                        <form action="{{ route('contact') }}" method="post">
+                                @csrf
+                                <div class="form-row form-group">
+                                    <div class="col"><input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name"></div>
+                                    <div class="col"><input class="form-control" type="tel" name="phone" id="inputPhone" placeholder="Enter your phone number"></div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input class="form-control" type="email" name="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="5" placeholder="Type your message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row text-right">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary">Send Request</button>
+                                    </div>
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>{{-- .col end --}}
+    </div>
    <div class="row py-5">
         <div class="col-md text-center">
             <h3 class="text-muted">
