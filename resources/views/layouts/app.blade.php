@@ -157,8 +157,8 @@
         <!-- Footer Links -->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }} Copyright
-          <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+        <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
+            <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
         </div>
         <!-- Copyright -->
 
