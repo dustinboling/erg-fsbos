@@ -16,7 +16,8 @@
         "laravel/nova": "~1.0",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-newsletter": "^4.2"
+        "spatie/laravel-newsletter": "^4.2",
+        "eugenerealtygroup/nova-theme": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -54,6 +55,10 @@
         {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaTheme"
         }
     ],
     "minimum-stability": "dev",
