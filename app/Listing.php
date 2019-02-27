@@ -36,6 +36,6 @@ class Listing extends Model implements HasMedia
 
     public function city()
     {
-        return $this->belongsTo('App\City');
+        return $this->belongsTo('App\City', 'city_id', 'id');
     }
 }

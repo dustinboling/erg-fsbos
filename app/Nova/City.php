@@ -45,7 +45,7 @@ class City extends Resource
     {
         return [
             ID::make()->sortable(),
-            HasMany::make('Listing'),
+            HasMany::make('Listings'),
             Text::make('Name')->sortable(),
             Trix::make('Content'),
             Images::make('Photos', 'listing') // second parameter is the media collection name

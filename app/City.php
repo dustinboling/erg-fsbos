@@ -16,7 +16,7 @@ class City extends Model implements HasMedia
      *
      * @var string
      */
-    protected $table = 'cities';
+    protected $table = "cities";
 
     /**
     * The attributes that are mass assignable.
@@ -43,6 +43,6 @@ class City extends Model implements HasMedia
 
     public function listings()
     {
-        return $this->hasMany('App\Listing');
+        return $this->hasMany('App\Listing', 'city_id', 'id');
     }
 }

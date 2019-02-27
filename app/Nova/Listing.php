@@ -55,7 +55,7 @@ class Listing extends Resource
                 'For Sale by Owner' => 'For Sale',
                 'Pending' => 'Pending',
                 'Sold' => 'Sold',
-            ])->sortable(),
+            ])->rules('required')->sortable(),
             Number::make('Price')->rules('required')->sortable(),
             new Panel('Location', $this->locationFields()),
             new Panel('Features', $this->featureFields()),
@@ -73,9 +73,9 @@ class Listing extends Resource
     {
         return [
             Text::make('Street Address')->rules('required'),
-            BelongsTo::make('City')->searchable(),
-            Text::make('State')->hideFromIndex(),
-            Text::make('Zip')->sortable(),
+            BelongsTo::make('City'),
+            Text::make('State')->rules('required')->hideFromIndex(),
+            Text::make('Zip')->rules('required')->sortable(),
             Text::make('Community')->sortable()->hideFromIndex(),
             Text::make('Neighborhood')->sortable()->hideFromIndex(),
         ];
@@ -89,10 +89,10 @@ class Listing extends Resource
     public function featureFields()
     {
         return [
-            Number::make('Beds')->sortable(),
-            Number::make('Baths')->sortable(),
-            Number::make('Half Baths')->hideFromIndex(),
-            Number::make('Sqft')->sortable(),
+            Number::make('Beds')->rules('required')->sortable(),
+            Number::make('Baths')->rules('required')->sortable(),
+            Number::make('Half Baths')->rules('required')->hideFromIndex(),
+            Number::make('Sqft')->rules('required')->sortable(),
             Trix::make('Description')->alwaysShow(),
         ];
     }
