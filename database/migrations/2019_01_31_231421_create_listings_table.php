@@ -15,7 +15,7 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('city_id');
+            $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->string('street_address')->default('');
             $table->string('city')->default('');

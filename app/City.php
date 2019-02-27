@@ -41,7 +41,7 @@ class City extends Model implements HasMedia
         $this->addMediaCollection('city');
     }
 
-    public function listing()
+    public function listings()
     {
         return $this->hasMany('App\Listing');
     }
