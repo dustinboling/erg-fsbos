@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -46,17 +48,19 @@ class Listing extends Resource
     public function fields(Request $request)
     {
         return [
+            Boolean::make('Live?','is_live')->sortable(),
+            //Text::make('Status')->sortable(),
+            Select::make('Status')->options([
+                'Coming Soon' => 'Coming Soon',
+                'For Sale by Owner' => 'For Sale',
+                'Pending' => 'Pending',
+                'Sold' => 'Sold',
+            ])->sortable(),
             Number::make('Price')->rules('required')->sortable(),
-
-            new Panel('Location Information', $this->locationFields()),
+            new Panel('Location', $this->locationFields()),
             new Panel('Features', $this->featureFields()),
-            ID::make()->sortable(),
-            Images::make('Photos', 'listing') // second parameter is the media collection name
-            ->conversion('slide') // conversion used to display the "original" image
-            ->conversionOnView('square') // conversion used on the model's view
-            ->thumbnail('square') // conversion used to display the image on the model's index page
-            ->multiple() // enable upload of multiple images - also ordering
-            ->singleImageRules('dimensions:min_width=1024'), // validation rules for the collection of images
+            new Panel('Photos', $this->photoField()), // validation rules for the collection of images
+            ID::make()->hideFromIndex(),
         ];
     }
 
@@ -70,7 +74,7 @@ class Listing extends Resource
         return [
             Text::make('Street Address')->rules('required'),
             BelongsTo::make('City')->searchable(),
-            Text::make('State')->sortable(),
+            Text::make('State')->hideFromIndex(),
             Text::make('Zip')->sortable(),
             Text::make('Community')->sortable()->hideFromIndex(),
             Text::make('Neighborhood')->sortable()->hideFromIndex(),
@@ -85,11 +89,29 @@ class Listing extends Resource
     public function featureFields()
     {
         return [
-            Trix::make('Description'),
             Number::make('Beds')->sortable(),
             Number::make('Baths')->sortable(),
-            Number::make('Half Baths')->sortable(),
+            Number::make('Half Baths')->hideFromIndex(),
             Number::make('Sqft')->sortable(),
+            Trix::make('Description')->alwaysShow(),
+        ];
+    }
+
+    /**
+    * Get the feature fields for the resource.
+    *
+    * @return array
+    */
+    public function photoField()
+    {
+        return [
+            Images::make('Photos', 'listing') // second parameter is the media collection name
+                ->conversion('slide') // conversion used to display the "original" image
+                ->conversionOnView('square') // conversion used on the model's view
+                ->thumbnail('square') // conversion used to display the image on the model's index page
+                ->multiple() // enable upload of multiple images - also ordering
+                ->singleImageRules('dimensions:min_width=1024')
+                ->hideFromIndex(),
         ];
     }
 

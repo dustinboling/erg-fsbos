@@ -15,18 +15,24 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('street_address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip');
-            $table->integer('price');
-            $table->integer('beds');
-            $table->integer('baths');
-            $table->integer('half_baths');
-            $table->integer('sqft');
-            $table->string('community');
-            $table->string('neighborhood');
-            $table->text('description');
+            $table->unsignedInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->string('street_address')->default('');
+            $table->string('city')->default('');
+            $table->string('state')->default('OR');
+            $table->string('zip')->default('');
+            $table->integer('price')->default(0);
+            $table->integer('beds')->default(0);
+            $table->integer('baths')->default(0);
+            $table->integer('half_baths')->default(0);
+            $table->integer('sqft')->default(0);
+            $table->string('community')->default('');
+            $table->string('neighborhood')->default('');
+            $table->text('description')->default('');
+            $table->text('txt_code')->nullable();
+            $table->text('status')->default('Coming Soon');
+            $table->boolean('is_live')->default(0);
+            // $table->string('slug')->default('');
             $table->timestamps();
         });
     }

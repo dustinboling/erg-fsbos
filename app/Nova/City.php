@@ -46,7 +46,7 @@ class City extends Resource
         return [
             ID::make()->sortable(),
             HasMany::make('Listing'),
-            Text::make('Name'),
+            Text::make('Name')->sortable(),
             Trix::make('Content'),
             Images::make('Photos', 'listing') // second parameter is the media collection name
                 ->conversion('slide') // conversion used to display the "original" image

@@ -12,6 +12,13 @@ class City extends Model implements HasMedia
     use HasMediaTrait;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'cities';
+
+    /**
     * The attributes that are mass assignable.
     *
     * @var array
