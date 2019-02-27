@@ -20,4 +20,4 @@ Homestead.json
 /.vagrant
 
 # Don't include lock file so it stops causing issues at deployment
-/composer.lock
+#/composer.lock
