@@ -29,8 +29,8 @@ class CreateListingsTable extends Migration
             $table->string('community')->default('');
             $table->string('neighborhood')->default('');
             $table->text('description')->nullable();
-            $table->text('txt_code')->nullable();
-            $table->text('status')->default('Coming Soon');
+            $table->string('txt_code')->nullable();
+            $table->string('status')->default('Coming Soon');
             $table->boolean('is_live')->default(0);
             // $table->string('slug')->default('');
             $table->timestamps();
