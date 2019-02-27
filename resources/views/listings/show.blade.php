@@ -28,6 +28,13 @@
                     <li class="per-sqft d-flex listing-detail rounded px-4">
                         <div class="align-self-center">${{ intdiv($listing->price, $listing->sqft) }} <small>$/sqft</small></div>
                     </li>
+                    <li class="per-sqft d-flex listing-detail rounded px-4">
+                        <div class="align-self-center">
+                            <a href="{{ route('cities.show', $listing->city->id ) }}">
+                                {{ $listing->city->name }}, Oregon
+                            </a>
+                        </div>
+                    </li>
                     {{-- <li class="location d-flex listing-detail rounded px-4 px-0">
                         <ul class="d-flex flex-column list-unstyled">
                             <li class="location-area d-flex bg-light">
@@ -125,7 +132,7 @@
                 @isset($similarListings)
                     Here are <span style="font-weight:700">{{ $similarListings->count() }} </span>
                 @endisset
-                More Homes For Sale by Owner in {{ $listing->city }}, Oregon
+                More Homes For Sale by Owner in {{ $listing->city->name }}, Oregon
             </h3>
         </div>
     </div>

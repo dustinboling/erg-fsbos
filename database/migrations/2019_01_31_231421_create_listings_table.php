@@ -18,7 +18,7 @@ class CreateListingsTable extends Migration
             $table->unsignedInteger('city_id');
             //$table->foreign('city_id')->references('id')->on('cities');
             $table->string('street_address')->default('');
-            $table->string('city')->default('');
+            //$table->string('city')->default('');
             $table->string('state')->default('OR');
             $table->string('zip')->default('');
             $table->unsignedInteger('price')->nullable();

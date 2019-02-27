@@ -14,7 +14,9 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        $listings = Listing::orderBy('price', 'desc')->get();
+        $listings = Listing::orderBy('price', 'desc')
+            ->where('is_live', true)
+            ->get();
 
         return view('listings.index', compact('listings'));
     }
@@ -49,7 +51,14 @@ class ListingsController extends Controller
     public function show(Listing $listing)
     {
         $media = $listing->getFirstMedia('listing');
-        $similarListings = Listing::latest()->take(8)->get();
+        $similarListings = Listing::latest()
+            ->where([
+                ['is_live', true],
+                ['id', '!=', $listing->id],
+                ['city_id', $listing->city->id],
+            ])
+            ->take(8)
+            ->get();
 
         return view('listings.show', compact('listing', 'media', 'similarListings'));
     }

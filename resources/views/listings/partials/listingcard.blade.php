@@ -26,7 +26,9 @@
                 {{-- <img src="https://picsum.photos/308/231/?random&{{ rand() }}" class="card-img-top img-fluid" alt="{{ $listing->street_address }}"> --}}
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item location pt-2 text-truncate">
-                        {{ $listing->community }} | {{ $listing->city }}
+                        <a href="{{ route('cities.show', $listing->city->id ) }}">
+                            {{ $listing->city->name }}, Oregon
+                        </a>
                     </li>
                     <li class="list-group-item price">
                         ${{ number_format($listing->price) }}
