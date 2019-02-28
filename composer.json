@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "benjaminhirsch/nova-slug-field": "^1.1",
         "ebess/advanced-nova-media-library": "^2.2",
         "eugenerealtygroup/nova-theme": "*",
         "fideloper/proxy": "^4.0",

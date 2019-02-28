@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\HasMany;
+use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 class City extends Resource
@@ -46,12 +48,13 @@ class City extends Resource
         return [
             ID::make()->sortable(),
             HasMany::make('Listings'),
-            Text::make('Name')
+            TextWithSlug::make('City Name', 'name')
+                ->slug('URL Slug')
                 ->rules('required')
                 ->sortable(),
-            Text::make('SEO Title', 'title')
+            Slug::make('URL Slug', 'slug')
                 ->rules('required'),
-            Text::make('URL Slug', 'slug')
+            Text::make('SEO Title', 'title')
                 ->rules('required'),
             Trix::make('Content')->alwaysShow(),
             Images::make('Photos', 'listing') // second parameter is the media collection name
