@@ -4,6 +4,7 @@
 ### Laravel ###
 vendor/*
 !vendor/eugenerealtygroup/
+vendor/eugenerealtygroup/*
 node_modules/
 npm-debug.log
 yarn-error.log
