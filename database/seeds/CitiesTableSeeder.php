@@ -55,6 +55,7 @@ class CitiesTableSeeder extends Seeder
         {
             DB::table('cities')->insert([
                 'name' => $city,
+                'title' => "Homes For Sale by Owner in ".$city." Oregon",
                 'slug' => Str::slug($city, '-'),
             ]);
         }
