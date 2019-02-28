@@ -106,65 +106,50 @@
             @yield('content')
         </main>
 
-        <!-- Footer -->
-<footer class="page-footer font-small text-light bg-primary pt-4">
+        {{-- Footer --}}
+        <footer class="page-footer font-small text-light bg-primary pt-4">
+            {{-- Call Outs --}}
+            <div class="container text-center text-md-left">
+                {{-- .row --}}
+                <div class="row">
+                    {{-- .column / Sellers --}}
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-light">Free Services to FSBO Sellers</h5>
+                        <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
+                    </div>{{-- /.column --}}
+                    {{-- .column / Buyers --}}
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-light">Free Services to Buyers</h5>
+                        <p>Advantages for buyer include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
+                    </div>{{-- /.column --}}
+                </div>{{-- /.row --}}
+            </div>{{-- /.container --}}
 
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left">
-
-          <!-- Grid row -->
-          <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
-
-              <!-- Content -->
-              <h5 class="text-light">Free Services to FSBO Sellers</h5>
-              <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
-
+            {{-- City Links --}}
+            <div class="pt-4" style="background-color:#00000010">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mb-md-0 mb-3">
+                            <h5 class="text-light">Browse Cities</h5>
+                            @isset($cityNavItems)
+                            <ul class="list-unstyled d-flex flex-wrap">
+                                @foreach ($cityNavItems as $cityNavItem)
+                                <li class="my-1 w-25">
+                                    <a class="text-light" href="{{ route('cities.show', $cityNavItem->id) }}">For Sale by Owner {{ $cityNavItem->name }} OR</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                            @endisset
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-6 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-light">Browse Cities</h5>
-
-                <ul class="list-unstyled d-flex flex-wrap justify-content-between">
-                  <li>
-                    <a class="text-light" href="#!">Eugene</a>
-                  </li>
-                  <li>
-                    <a class="text-light" href="#!">Springfield</a>
-                  </li>
-                  <li>
-                    <a class="text-light" href="#!">Junction City</a>
-                  </li>
-                  <li>
-                    <a class="text-light" href="#!">Brownsville</a>
-                  </li>
-                </ul>
-
-              </div>
-              <!-- Grid column -->
-
-          </div>
-          <!-- Grid row -->
-
-        </div>
-        <!-- Footer Links -->
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
-            <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
-        </div>
-        <!-- Copyright -->
-
-      </footer>
-      <!-- Footer -->
+            {{-- Copyright --}}
+            <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
+                <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+            </div>{{-- /Copyright --}}
+        </footer>
+        {{-- Footer --}}
     </div>
 </body>
 </html>

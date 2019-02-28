@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $cities = \App\City::orderBy('name', 'asc')->get();
+        view()->share('cityNavItems', $cities);
     }
 }
