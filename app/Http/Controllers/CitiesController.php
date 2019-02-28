@@ -47,7 +47,8 @@ class CitiesController extends Controller
      */
     public function show(City $city)
     {
-        //
+        $images = $city->getMedia('city');
+        return view('cities.show', compact('city', 'images'));
     }
 
     /**
