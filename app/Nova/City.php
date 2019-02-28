@@ -50,8 +50,7 @@ class City extends Resource
                 ->rules('required')
                 ->sortable(),
             Text::make('SEO Title', 'title')
-                ->rules('required')
-                ->hideFromIndex(),
+                ->rules('required'),
             Text::make('URL Slug', 'slug')
                 ->rules('required'),
             Trix::make('Content')->alwaysShow(),
