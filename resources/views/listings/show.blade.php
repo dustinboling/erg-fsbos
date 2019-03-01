@@ -100,15 +100,15 @@
                                     <input type="hidden" name="listing_id" value="{{ $listing->id }}">
                                     <div class="form-row form-group">
                                         <div class="col">
-                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="name" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name">
+                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="name" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name" required>
                                         </div>
                                         <div class="col">
-                                            <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel" name="phone" value="{{ old('phone') }}" id="inputPhone" placeholder="Enter your phone number">
+                                            <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel" name="phone" value="{{ old('phone') }}" id="inputPhone" placeholder="Enter your phone number" required>
                                         </div>
                                     </div>
                                     <div class="form-row form-group">
                                         <div class="col">
-                                            <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
+                                            <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address" required>
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                     </div>
