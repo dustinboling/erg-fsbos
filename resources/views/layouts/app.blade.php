@@ -109,7 +109,7 @@
         {{-- Footer --}}
         <footer class="page-footer font-small text-light bg-primary pt-4">
             {{-- Call Outs --}}
-            <div class="container text-center text-md-left">
+            <div class="container text-center text-md-left py-4">
                 {{-- .row --}}
                 <div class="row">
                     {{-- .column / Sellers --}}

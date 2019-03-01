@@ -20,6 +20,7 @@ Route::get('/services', 'PagesController@services')->name('services');
 Route::resource('subscribe', 'SubscribersController');
 Route::resource('listings', 'ListingsController')->middleware('auth');
 Route::resource('cities', 'CitiesController')->middleware('auth');
+Route::resource('leads', 'LeadsController')->middleware('auth');
 
 Auth::routes();
 Route::get('/my-account', 'UsersController@index')->name('account');
