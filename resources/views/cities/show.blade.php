@@ -10,7 +10,7 @@
     <div class="row my-5">
         <div class="col-md text-center">
             <h3 class="text-muted">
-                Here are <span style="font-weight:700">{{ $city->listings->count() }} </span> of the Latest Homes For Sale by Owner in {{ $city->name }}, Oregon
+                Here are <span style="font-weight:700">{{ $city->listings->count() }} </span> of the Latest Homes For Sale by Owner in {{ $city->name }}, {{ $city->state }}
             </h3>
         </div>
     </div>
@@ -21,7 +21,7 @@
 
     <div class="row my-5">
         <div class="col">
-            <h1>{{ $city->name }}, Oregon Homes For Sale by Owner</h1>
+            <h1>{{ $city->name }}, {{ $city->state }} For Sale by Owner</h1>
             {!! $city->content !!}
         </div>
     </div>

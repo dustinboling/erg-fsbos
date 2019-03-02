@@ -28,12 +28,9 @@
                         <div class="align-self-center">{{ number_format($listing->sqft) }} <small>sqft</small></div>
                     </li>
                     <li class="per-sqft d-flex listing-detail rounded px-4">
-                        <div class="align-self-center">${{ intdiv($listing->price, $listing->sqft) }} <small>$/sqft</small></div>
-                    </li>
-                    <li class="per-sqft d-flex listing-detail rounded px-4">
                         <div class="align-self-center">
-                            <a href="{{ route('cities.show', $listing->city->id ) }}">
-                                {{ $listing->city->name }}<small>, Oregon</small>
+                            <a href="{{ route('cities.show', $listing->city->slug ) }}">
+                                {{ $listing->city->name }}<small>, {{ $listing->city->state }}</small>
                             </a>
                         </div>
                     </li>

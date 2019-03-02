@@ -16,7 +16,8 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('title');
+            $table->string('state');
+            $table->string('title')->default('Homes For Sale by Owner');
             $table->string('slug');
             $table->text('content')->nullable();
             $table->timestamps();

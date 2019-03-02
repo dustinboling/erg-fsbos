@@ -135,7 +135,7 @@
                             <ul class="list-unstyled d-flex flex-wrap">
                                 @foreach ($cityNavItems as $cityNavItem)
                                 <li class="col-sm-6 col-lg-4 col-xl-3 my-1">
-                                    <a class="text-light" href="{{ route('cities.show', $cityNavItem->id) }}">For Sale by Owner {{ $cityNavItem->name }} OR</a>
+                                    <a class="text-light" href="{{ route('cities.show', $cityNavItem->slug) }}">For Sale by Owner {{ $cityNavItem->name }} OR</a>
                                 </li>
                                 @endforeach
                             </ul>
