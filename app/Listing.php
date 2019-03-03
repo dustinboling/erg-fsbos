@@ -38,4 +38,9 @@ class Listing extends Model implements HasMedia
     {
         return $this->belongsTo('App\City', 'city_id', 'id');
     }
+
+    public function leads()
+    {
+        return $this->hasMany('App\Lead');
+    }
 }

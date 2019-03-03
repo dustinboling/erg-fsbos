@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -61,6 +62,7 @@ class Listing extends Resource
             new Panel('Features', $this->featureFields()),
             new Panel('Photos', $this->photoField()), // validation rules for the collection of images
             ID::make()->hideFromIndex(),
+            HasMany::make('Leads'),
         ];
     }
 
