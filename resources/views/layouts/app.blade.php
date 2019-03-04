@@ -108,22 +108,6 @@
 
         {{-- Footer --}}
         <footer class="page-footer font-small text-light bg-primary pt-4">
-            {{-- Call Outs --}}
-            <div class="container text-center text-md-left py-4">
-                {{-- .row --}}
-                <div class="row">
-                    {{-- .column / Sellers --}}
-                    <div class="col-md-6 mt-md-0 mt-3">
-                        <h5 class="text-light">Free Services to FSBO Sellers</h5>
-                        <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
-                    </div>{{-- /.column --}}
-                    {{-- .column / Buyers --}}
-                    <div class="col-md-6 mt-md-0 mt-3">
-                        <h5 class="text-light">Free Services to Buyers</h5>
-                        <p>Advantages for buyers include the ability to see the majority of available FSBO’s in one location and speak with a licensed real estate broker about the home buying process, the pre-approval process and to learn more about the homes featured on our website. We can help you schedule a tour of any available homes and are here to answer any questions you may have.</p>
-                    </div>{{-- /.column --}}
-                </div>{{-- /.row --}}
-            </div>{{-- /.container --}}
 
             {{-- City Links --}}
             <div class="pt-4" style="background-color:#00000010">
