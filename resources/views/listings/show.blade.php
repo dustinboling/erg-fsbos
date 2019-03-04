@@ -97,7 +97,7 @@
                                     <input type="hidden" name="listing_id" value="{{ $listing->id }}">
                                     <div class="form-row form-group">
                                         <div class="col">
-                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="name" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name" required>
+                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name" required>
                                         </div>
                                         <div class="col">
                                             <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel" name="phone" value="{{ old('phone') }}" id="inputPhone" placeholder="Enter your phone number" required>

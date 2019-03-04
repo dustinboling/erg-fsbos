@@ -12,6 +12,14 @@
                 <p>Advantages for sellers include FREE exposure through our website to reach thousands of buyers every month, a licensed real estate broker’s help with finding buyers for your home without a fee, and help answering all of the inquiries about your home which can save you a lot of time.</p>
                 <p>Feel free to contact us at any time! A friendly and professional real estate broker will be available to talk with you about buying a home or advertising your FSBO on our website (free of charge). We look forward to being of service!</p>
             </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-center font-weight-bolder">Send a Request to Add Your FSBO Property to this Website</div>
+                    <div class="card-body">
+                        @include('pages.partials.sellerleadform')
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

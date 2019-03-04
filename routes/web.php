@@ -20,17 +20,22 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/services', 'PagesController@services')->name('services');
 
 // Listings
-Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index');
-Route::get('/for-sale-by-owner/{listing}', 'ListingsController@show')->name('listings.show');
+Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index')->middleware('auth');
+Route::get('/for-sale-by-owner/{listing}', 'ListingsController@show')->name('listings.show')->middleware('auth');
 
 // Cities
-Route::get('/cities', 'CitiesController@index')->name('cities.index');
-Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('cities.show');
+Route::get('/cities', 'CitiesController@index')->name('cities.index')->middleware('auth');
+Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('cities.show')->middleware('auth');
 
+// Leads
+Route::post('seller-leads', 'SellerLeadsController@store')->name('seller-leads.store');
+//Route::resource('seller-leads', 'SellerLeadsController')->middleware('auth');
+Route::post('leads', 'LeadsController@store')->name('leads.store');
+//Route::resource('leads', 'LeadsController');
+
+// Mailchimp
 Route::resource('subscribe', 'SubscribersController');
-//Route::resource('listings', 'ListingsController')->middleware('auth');
-//Route::resource('cities', 'CitiesController')->middleware('auth');
-Route::resource('leads', 'LeadsController')->middleware('auth');
 
+// Auth
 Auth::routes();
-Route::get('/my-account', 'UsersController@index')->name('account');
+Route::get('/my-account', 'UsersController@index')->name('account')->middleware('auth');

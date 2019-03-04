@@ -2,21 +2,22 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Lead extends Resource
+class SellerLead extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Lead';
+    public static $model = 'App\SellerLead';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,7 +32,7 @@ class Lead extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email', 'listing_id'
+        'id', 'name', 'address',
     ];
 
     /**
@@ -51,13 +52,52 @@ class Lead extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Listing'),
-            Text::make('Name')
-                ->sortable()
-                ->rules('required', 'string'),
+            new Panel('Seller', $this->sellerFields()),
+            new Panel('Property Address', $this->addressFields()),
+        ];
+    }
+
+    /**
+     * Get the seller fields for the resource
+     *
+     * @return array
+     */
+    protected function sellerFields()
+    {
+        return [
+            Text::make('First Name')->rules('required', 'string'),
+            Text::make('Last Name')->rules('required', 'string'),
             Text::make('Phone'),
             Text::make('Email')->rules('required', 'email'),
-            Textarea::make('Message'),
+            Textarea::make('Message')->alwaysShow(),
+        ];
+    }
+
+    /**
+    * Get the address fields for the resource.
+    *
+    * @return array
+    */
+    protected function addressFields()
+    {
+        return [
+            Place::make('Address', 'address_line_1')
+                ->countries(['US'])
+                ->hideFromIndex()
+                ->rules('required'),
+            Text::make('Address Line 2')->hideFromIndex(),
+            Text::make('City')
+                ->hideFromIndex()
+                ->rules('required'),
+            Text::make('State')
+                ->hideFromIndex()
+                ->rules('required'),
+            Text::make('Postal Code')
+                ->hideFromIndex()
+                ->rules('required'),
+            //Country::make('Country')->hideFromIndex(),
+            Text::make('Latitude')->hideFromIndex(),
+            Text::make('Longitude')->hideFromIndex(),
         ];
     }
 
@@ -69,10 +109,7 @@ class Lead extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new Metrics\LeadsPerDay)->width('1/2'),
-            (new Metrics\NewLeads)->width('1/2'),
-        ];
+        return [];
     }
 
     /**
