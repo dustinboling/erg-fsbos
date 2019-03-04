@@ -43,6 +43,26 @@ class SellerLead extends Resource
     public static $group = 'Leads';
 
     /**
+     * Get the displayable label of the resource.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return "Seller Leads";
+    }
+
+    /**
+     * Get the displayable singular label of the resource.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return "Seller Lead";
+    }
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
