@@ -101,13 +101,10 @@ class SellerLead extends Resource
     protected function addressFields()
     {
         return [
-            Place::make('Address', 'address_line_1')
-                ->countries(['US'])
-                ->hideFromIndex()
+            Text::make('Address', 'address_line_1')
                 ->rules('required'),
             Text::make('Address Line 2')->hideFromIndex(),
             Text::make('City')
-                ->hideFromIndex()
                 ->rules('required'),
             Text::make('State')
                 ->hideFromIndex()

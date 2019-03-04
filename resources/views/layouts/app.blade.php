@@ -82,7 +82,7 @@
                         <div class="card sponsor text-center">
                             <div class="card-body">
                                 <a class="d-block float-left mt-2" href="https://www.eugenerealtygroup.com/" target="_blank"><img src="{{ asset('img/eugene-realty-logo.png') }}" alt="Eugene Realty Group" width="116px" height="50px"></a>
-                                <p class="card-text text-muted"><em>This free public listing service is sponsored by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon.</em></p>
+                                <p class="card-text text-muted"><em>This free public listing service is sponsored by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon. (541) 799-6622</em></p>
                             </div>
                         </div>
                     </div>
@@ -131,6 +131,8 @@
             {{-- Copyright --}}
             <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
                 <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+                <span class="px-1">&middot;</span>
+                <a href="tel:5417996622" class="text-light">(541) 799-6622</a>
             </div>{{-- /Copyright --}}
         </footer>
         {{-- Footer --}}

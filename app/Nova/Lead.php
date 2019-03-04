@@ -77,7 +77,7 @@ class Lead extends Resource
                 ->rules('required', 'string'),
             Text::make('Phone'),
             Text::make('Email')->rules('required', 'email'),
-            Textarea::make('Message'),
+            Textarea::make('Message')->alwaysShow(),
         ];
     }
 

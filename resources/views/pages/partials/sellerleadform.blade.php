@@ -10,6 +10,7 @@
 
 <form action="{{ route('seller-leads.store') }}" method="post">
         @csrf
+        <h5 class="card-title">Your Contact Information</h5>
         <div class="form-row form-group">
             <div class="col">
                 <input class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}" type="text" name="first_name" value="{{ old('first_name') }}" id="inputFirstName" placeholder="Enter your first name" required>
@@ -29,6 +30,7 @@
             </div>
         </div>
         {{-- Property Address --}}
+        <h5 class="card-title">Your Property's Address</h5>
         <div class="form-row form-group">
             <div class="col">
                 <input class="form-control {{ $errors->has('address_line_1') ? 'is-invalid' : '' }}" type="text" name="address_line_1" value="{{ old('address_line_1') }}" id="inputAddressLine1" placeholder="Street address" required>
@@ -52,7 +54,7 @@
 
         <div class="form-row form-group">
             <div class="col">
-                <textarea class="form-control w-100" name="message" id="inputMessage" cols="30" rows="5" placeholder="Optional message">{{ old('message') }}</textarea>
+                <textarea class="form-control w-100" name="message" id="inputMessage" cols="30" rows="5" placeholder="Any additional information?">{{ old('message') }}</textarea>
             </div>
         </div>
         <div class="form-row text-right">

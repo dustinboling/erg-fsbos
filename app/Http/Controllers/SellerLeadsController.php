@@ -48,7 +48,9 @@ class SellerLeadsController extends Controller
             'message' => 'present',
         ]));
 
-        return back()->withInput();
+        return back()
+            ->withInput()
+            ->with('status', 'Your request to add your property has been sent! We will be in touch shortly!');
     }
 
     /**

@@ -43,7 +43,9 @@ class LeadsController extends Controller
             'listing_id' => 'required|numeric',
         ]));
 
-        return back()->withInput();
+        return back()
+            ->withInput()
+            ->with('status', 'Your request for more details on this property has been sent! We will be in touch with you shortly!');
     }
 
     /**
