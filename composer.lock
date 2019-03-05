@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c10a495e889fa70254ee4304dccda6f",
+    "content-hash": "4ee644e5d4633780dd16bfd74f0dbb37",
     "packages": [
         {
             "name": "benjaminhirsch/nova-slug-field",
