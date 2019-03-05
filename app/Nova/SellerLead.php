@@ -32,7 +32,7 @@ class SellerLead extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'address',
+        'id', 'name', 'address_line_1',
     ];
 
     /**
@@ -85,6 +85,9 @@ class SellerLead extends Resource
     protected function sellerFields()
     {
         return [
+            Text::make('Name', function () {
+                return $this->first_name.' '.$this->last_name;
+            }),
             Text::make('First Name')->rules('required', 'string'),
             Text::make('Last Name')->rules('required', 'string'),
             Text::make('Phone'),

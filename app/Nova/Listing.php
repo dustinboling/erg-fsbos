@@ -37,7 +37,7 @@ class Listing extends Resource
     * @var array
     */
     public static $search = [
-        'id', 'street_address', 'city', 'state', 'zip', 'community', 'neighborhood'
+        'id', 'street_address', 'zip', 'community', 'neighborhood'
     ];
 
     /**

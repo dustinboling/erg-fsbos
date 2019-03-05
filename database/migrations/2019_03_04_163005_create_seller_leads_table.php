@@ -17,6 +17,7 @@ class CreateSellerLeadsTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('email');
             $table->string('address_line_1');
