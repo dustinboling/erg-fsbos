@@ -50,7 +50,7 @@ class ListingsController extends Controller
      */
     public function show(Listing $listing)
     {
-        $media = $listing->getFirstMedia('listing');
+        $images = $listing->getMedia('gallery');
         $similarListings = Listing::latest()
             ->where([
                 ['is_live', true],
@@ -60,7 +60,7 @@ class ListingsController extends Controller
             ->take(8)
             ->get();
 
-        return view('listings.show', compact('listing', 'media', 'similarListings'));
+        return view('listings.show', compact('listing', 'images', 'similarListings'));
     }
 
     /**

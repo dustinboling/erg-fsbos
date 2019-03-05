@@ -16,7 +16,7 @@ class City extends Model implements HasMedia
      *
      * @var string
      */
-    protected $table = "cities";
+    //protected $table = "cities";
 
     /**
     * Get the route key for the model.
@@ -38,17 +38,18 @@ class City extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
-        ->crop('crop-center', 1920, 1080) // 1080P Resolution
-        ->withResponsiveImages();
+            ->crop('crop-center', 1920, 1080) // 1080P Resolution
+            ->withResponsiveImages();
 
         $this->addMediaConversion('square')
-        ->crop('crop-center', 512, 512)
-        ->withResponsiveImages();
+            ->crop('crop-center', 512, 512)
+            ->withResponsiveImages();
     }
 
     public function registerMediaCollections()
     {
-        $this->addMediaCollection('city');
+        $this->addMediaCollection('main')->singleFile();
+        $this->addMediaCollection('gallery');
     }
 
     public function listings()

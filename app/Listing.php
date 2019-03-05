@@ -21,7 +21,7 @@ class Listing extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
-        ->crop('crop-center', 1024, 768)
+        ->crop('crop-center', 1920, 1080) // 1080P resolution
         ->withResponsiveImages();
 
         $this->addMediaConversion('square')
@@ -31,7 +31,7 @@ class Listing extends Model implements HasMedia
 
     public function registerMediaCollections()
     {
-        $this->addMediaCollection('listing');
+        $this->addMediaCollection('gallery');
     }
 
     public function city()
