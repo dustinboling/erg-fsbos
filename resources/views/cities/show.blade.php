@@ -21,6 +21,7 @@
 
     <div class="row my-5">
         <div class="col">
+            {{ $city->getFirstMedia() }}
             <h1>{{ $city->name }}, {{ $city->state }} For Sale by Owner</h1>
             {!! $city->content !!}
         </div>
