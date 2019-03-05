@@ -38,7 +38,7 @@ class City extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
-        ->crop('crop-center', 1024, 768)
+        ->crop('crop-center', 1920, 1080) // 1080P Resolution
         ->withResponsiveImages();
 
         $this->addMediaConversion('square')
