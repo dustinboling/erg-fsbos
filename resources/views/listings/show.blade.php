@@ -37,7 +37,8 @@
                 </ul>{{--/ .listing-details --}}
 
                 <div class="listing-media mb-3">
-                    @include('listings.partials.carousel')
+                    {{--  CAROUSEL  --}}
+                    @includeWhen($listing->hasMedia('gallery'), 'listings.partials.carousel-large', ['images' => $listing->getMedia('gallery')])
                 </div>{{--/ .listing-media --}}
 
                 <div class="row">

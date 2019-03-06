@@ -2,31 +2,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card listing-card shadow-sm mb-4">
                 {{--  CAROUSEL  --}}
-                {{--
-                <div id="carouselListing{{ $listing->id }}" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city->name }}">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city->name }}">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100 rounded" src="https://picsum.photos/506/380/?random&{{ rand() }}" alt="Home for sale by owner in {{ $listing->city->name }}">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselListing{{ $listing->id }}" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselListing{{ $listing->id }}" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                --}}
-                @include('listings.partials.carousel')
-
+                @includeWhen($listing->hasMedia('gallery'), 'listings.partials.carousel-small', ['images' => $listing->getMedia('gallery')])
                 {{-- <img src="https://picsum.photos/308/231/?random&{{ rand() }}" class="card-img-top img-fluid" alt="{{ $listing->street_address }}"> --}}
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item location pt-2 text-truncate">
