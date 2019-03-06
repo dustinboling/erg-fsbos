@@ -11,7 +11,9 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
+use App\Nova\Metrics\ListingCount;
 use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Metrics\ListingsPerMonth;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
@@ -132,7 +134,10 @@ class Listing extends Resource
     */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new ListingCount)->width('1/4'),
+            (new ListingsPerMonth)->width('3/4'),
+        ];
     }
 
     /**

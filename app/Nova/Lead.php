@@ -5,6 +5,8 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use App\Nova\Metrics\LeadsCount;
+use App\Nova\Metrics\LeadsPerDay;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -90,8 +92,8 @@ class Lead extends Resource
     public function cards(Request $request)
     {
         return [
-            (new Metrics\LeadsPerDay)->width('1/2'),
-            (new Metrics\NewLeads)->width('1/2'),
+            (new LeadsCount)->width('1/4'),
+            (new LeadsPerDay)->width('3/4'),
         ];
     }
 

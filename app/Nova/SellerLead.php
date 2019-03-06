@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Textarea;
+use App\Nova\Metrics\SellerLeadsCount;
+use App\Nova\Metrics\SellerLeadsPerDay;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class SellerLead extends Resource
@@ -129,7 +131,10 @@ class SellerLead extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new SellerLeadsCount)->width('1/4'),
+            (new SellerLeadsPerDay)->width('3/4'),
+        ];
     }
 
     /**

@@ -2,12 +2,14 @@
 
 namespace App\Nova\Metrics;
 
-use App\Lead;
+use App\SellerLead;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Value;
 
-class NewLeads extends Value
+class SellerLeadsCount extends Value
 {
+    public $name = "Seller Leads";
+
     /**
      * Calculate the value of the metric.
      *
@@ -16,7 +18,7 @@ class NewLeads extends Value
      */
     public function calculate(Request $request)
     {
-        return $this->count($request, Lead::class);
+        return $this->count($request, SellerLead::class);
     }
 
     /**
@@ -43,7 +45,7 @@ class NewLeads extends Value
      */
     public function cacheFor()
     {
-        // return now()->addMinutes(5);
+        return now()->addMinutes(5);
     }
 
     /**
@@ -53,6 +55,6 @@ class NewLeads extends Value
      */
     public function uriKey()
     {
-        return 'new-leads';
+        return 'seller-leads-count';
     }
 }

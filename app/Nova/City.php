@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\HasMany;
+use App\Nova\Metrics\CitiesCount;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
@@ -80,7 +81,9 @@ class City extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new CitiesCount)->width('1/4'),
+        ];
     }
 
     /**

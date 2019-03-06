@@ -2,13 +2,12 @@
 
 namespace App\Nova\Metrics;
 
-use App\Lead;
+use App\Listing;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Trend;
 
-class LeadsPerDay extends Trend
+class ListingsPerMonth extends Trend
 {
-    public $name = "Buyer Leads Per Day";
     /**
      * Calculate the value of the metric.
      *
@@ -17,7 +16,7 @@ class LeadsPerDay extends Trend
      */
     public function calculate(Request $request)
     {
-        return $this->countByDays($request, Lead::class);
+        return $this->countByMonths($request, Listing::class);
     }
 
     /**
@@ -28,9 +27,9 @@ class LeadsPerDay extends Trend
     public function ranges()
     {
         return [
-            30 => '30 Days',
-            60 => '60 Days',
-            90 => '90 Days',
+            6 => '6 Months',
+            12 => '12 Months',
+            24 => '24 Months',
         ];
     }
 
@@ -41,7 +40,7 @@ class LeadsPerDay extends Trend
      */
     public function cacheFor()
     {
-        // return now()->addMinutes(5);
+        //return now()->addMinutes(5);
     }
 
     /**
@@ -51,6 +50,6 @@ class LeadsPerDay extends Trend
      */
     public function uriKey()
     {
-        return 'leads-per-day';
+        return 'listings-per-month';
     }
 }
