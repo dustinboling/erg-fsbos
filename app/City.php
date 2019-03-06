@@ -16,7 +16,7 @@ class City extends Model implements HasMedia
      *
      * @var string
      */
-    //protected $table = "cities";
+    protected $table = "cities";
 
     /**
     * Get the route key for the model.
@@ -49,7 +49,6 @@ class City extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection('main')->singleFile();
-        $this->addMediaCollection('gallery');
     }
 
     public function listings()

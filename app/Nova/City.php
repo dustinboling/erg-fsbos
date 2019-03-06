@@ -64,17 +64,11 @@ class City extends Resource
             Text::make('SEO Title', 'title')
                 ->rules('required'),
             Trix::make('Content')->alwaysShow(),
-            Images::make('Main Image')
+            Images::make('Main Image', 'main')
                 ->conversion('slide') // conversion used to display the "original" image
                 ->conversionOnView('square') // conversion used on the model's view
                 ->thumbnail('square') // conversion used to display the image on the model's index page
-                ->singleImageRules('dimensions:min_width=1920'), // validation rules for the collection of images
-            Images::make('Photo Gallery', 'gallery') // second parameter is the media collection name
-                ->conversion('slide') // conversion used to display the "original" image
-                ->conversionOnView('square') // conversion used on the model's view
-                ->thumbnail('square') // conversion used to display the image on the model's index page
-                ->multiple() // enable upload of multiple images - also ordering
-                ->singleImageRules('dimensions:min_width=1920'), // validation rules for the collection of images
+                ->singleImageRules('dimensions:min_width=512'), // validation rules for the collection of images
         ];
     }
 

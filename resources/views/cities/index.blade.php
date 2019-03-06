@@ -16,7 +16,12 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card listing-card shadow-sm mb-4">
                 <a href="{{ route('cities.show', $city->slug) }}" class="card-link">
-                    <img src="https://picsum.photos/506/380/?random&{{ rand() }}" class="card-img-top img-fluid" alt="Homes For Sale by Owner {{ $city->name }} OR">
+                    @if ($city->hasMedia('main'))
+                    <?php $image = $city->getFirstMedia('main') ?>
+                    {{ $image('square', ['class' => 'w-100']) }}
+                    @else
+                <img src="{{ asset('img/city-fsbo-default.png') }}" class="card-img-top img-fluid" alt="Homes For Sale by Owner {{ $city->name }} OR">
+                    @endif
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $city->name }}</h5>

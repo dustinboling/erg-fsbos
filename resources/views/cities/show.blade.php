@@ -22,7 +22,7 @@
     <div class="row my-5">
         <div class="col">
             @if ($image = $city->getFirstMedia('main'))
-            {{ $image('slide') }}
+            {{ $image('slide', ['class' => 'w-100 rounded shadow-sm']) }}
             @endif
             <h1>{{ $city->name }}, {{ $city->state }} For Sale by Owner</h1>
             {!! $city->content !!}
