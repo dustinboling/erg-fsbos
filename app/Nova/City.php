@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\HasMany;
 use App\Nova\Metrics\CitiesCount;
+use App\Nova\Metrics\ListingsPerCity;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
@@ -83,6 +84,7 @@ class City extends Resource
     {
         return [
             (new CitiesCount)->width('1/4'),
+            (new ListingsPerCity)->width('1/4'),
         ];
     }
 
