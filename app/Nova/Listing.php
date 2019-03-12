@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
+use App\Nova\Filters\LiveListings;
 use App\Nova\Metrics\ListingCount;
 use Laravel\Nova\Fields\BelongsTo;
 use App\Nova\Metrics\ListingsPerMonth;
@@ -148,7 +149,9 @@ class Listing extends Resource
     */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new LiveListings,
+        ];
     }
 
     /**
