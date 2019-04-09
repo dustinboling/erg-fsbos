@@ -96,4 +96,38 @@ class ListingsController extends Controller
     {
         //
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $request->flash();
+
+        $validatedData = $request->validate([
+            'beds' => 'required|numeric|min:0|max:99',
+            'baths' => 'required|numeric|min:0|max:99',
+            'sqft' => 'required|numeric|min:0|max:99999',
+            'min_price' => 'required|numeric|min:0|max:999999999',
+            'max_price' => 'required|numeric|min:0|max:999999999'
+        ]);
+
+        //dd($validatedData);
+
+        $listings = Listing::orderBy('price', 'desc')
+            ->where([
+                ['is_live', true],
+                ['beds', '>=', (int)$validatedData['beds']],
+                ['baths', '>=', (int)$validatedData['baths']],
+                ['sqft', '>=', (int)$validatedData['sqft']],
+                ['price', '>=', (int)$validatedData['min_price']],
+                ['price', '<=', (int)$validatedData['max_price']]
+            ])
+            ->get();
+
+        return view('listings.index', compact('listings'));
+    }
 }

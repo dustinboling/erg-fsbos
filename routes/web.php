@@ -22,6 +22,7 @@ Route::get('/services', 'PagesController@services')->name('services');
 // Listings
 Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index')->middleware('auth');
 Route::get('/for-sale-by-owner/{listing}', 'ListingsController@show')->name('listings.show')->middleware('auth');
+Route::get('/search', 'ListingsController@search')->name('listings.search')->middleware('auth');
 
 // Cities
 Route::get('/cities', 'CitiesController@index')->name('cities.index')->middleware('auth');
