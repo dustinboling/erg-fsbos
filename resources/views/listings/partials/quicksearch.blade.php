@@ -12,9 +12,9 @@
                         <div class="input-group">
                             <select class="custom-select" id="inputGroupSelect01" name="beds">
                                 <option value="1" {{ (1 == old('beds', '1') ? 'selected' : '') }}>1+</option>
-                                <option value="2" {{ (2 == old('baths') ? 'selected' : '') }}>2+</option>
-                                <option value="3" {{ (3 == old('baths') ? 'selected' : '') }}>3+</option>
-                                <option value="4" {{ (4 == old('baths') ? 'selected' : '') }}>4+</option>
+                                <option value="2" {{ (2 == old('beds') ? 'selected' : '') }}>2+</option>
+                                <option value="3" {{ (3 == old('beds') ? 'selected' : '') }}>3+</option>
+                                <option value="4" {{ (4 == old('beds') ? 'selected' : '') }}>4+</option>
                             </select>
                             <div class="input-group-append">
                                 <label class="input-group-text" for="inputGroupSelect01">Min Beds</label>
