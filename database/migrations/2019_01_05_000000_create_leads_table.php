@@ -15,12 +15,16 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('listing_id');
+            $table->integer('listing_id')->unsigned();
             $table->string('name');
             $table->string('phone');
             $table->string('email');
             $table->text('message');
             $table->timestamps();
+
+            $table->foreign('listing_id')
+                    ->references('id')
+                    ->on('listings');
         });
     }
 

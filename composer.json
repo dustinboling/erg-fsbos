@@ -19,7 +19,8 @@
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
         "spatie/laravel-medialibrary": "^7.0.0",
-        "spatie/laravel-newsletter": "^4.2"
+        "spatie/laravel-newsletter": "^4.2",
+        "spatie/laravel-permission": "^2.37"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -15,10 +15,10 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('city_id');
-            //$table->foreign('city_id')->references('id')->on('cities');
+            $table->integer('city_id')->unsigned();
+            //$table->integer('user_id')->unsigned();
+
             $table->string('street_address')->default('');
-            //$table->string('city')->default('');
             $table->string('state')->default('OR');
             $table->string('zip')->default('');
             $table->unsignedInteger('price')->nullable();
@@ -34,6 +34,16 @@ class CreateListingsTable extends Migration
             $table->boolean('is_live')->default(0);
             // $table->string('slug')->default('');
             $table->timestamps();
+
+            $table->foreign('city_id')
+                    ->references('id')
+                    ->on('cities')
+                    ->onDelete('cascade');
+
+            // $table->foreign('user_id')
+            //         ->references('id')
+            //         ->on('users')
+            //         ->onDelete('cascade');
         });
     }
 

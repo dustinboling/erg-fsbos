@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $cities = \App\City::orderBy('name', 'asc')->get();
-        view()->share('cityNavItems', $cities);
+        // Give all views Cities for use in SEO nav links
+        if (Schema::hasTable('cities')) {
+            $cities = \App\City::orderBy('name', 'asc')->get();
+            view()->share('cityNavItems', $cities);
+        }
     }
 }
