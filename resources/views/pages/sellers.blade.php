@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Willamette Valley FSBOs - Services')
+@section('title', 'Willamette Valley FSBOs - Sellers')
 
 @section('content')
     <div class="container py-4 my-4">
@@ -39,7 +39,7 @@
                     {{-- Seller Lead Form --}}
                     <div class="card">
                         <div class="card-header text-center text-light font-weight-bold bg-primary">Add Your FSBO Property to this Website</div>
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: #f2f2f2;">
                             <p class="card-text">Do you want to maximize the exposure of your For Sale by Owner property? Use this form to send a request to add your FSBO property to this website and receive information on additional FREE services available to you.</p>
                             @include('pages.partials.sellerleadform')
                         </div>

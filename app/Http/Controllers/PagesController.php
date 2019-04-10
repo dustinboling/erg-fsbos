@@ -25,8 +25,13 @@ class PagesController extends Controller
         return view('pages.contact');
     }
 
-    public function services()
+    public function buyers()
     {
-        return view('pages.services');
+        return view('pages.buyers');
+    }
+
+    public function sellers()
+    {
+        return view('pages.sellers');
     }
 }

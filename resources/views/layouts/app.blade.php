@@ -31,7 +31,8 @@
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('cities.index') }}">{{ __('Browse') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('listings.index') }}">{{ __('Search') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('services') }}">{{ __('Sell') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('buyers') }}">{{ __('Buy') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('sellers') }}">{{ __('Sell') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                     </ul>
 

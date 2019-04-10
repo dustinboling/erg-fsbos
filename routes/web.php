@@ -17,7 +17,8 @@ Route::get('/', function () {
 // Pages
 Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
 Route::get('/contact', 'PagesController@contact')->name('contact');
-Route::get('/services', 'PagesController@services')->name('services');
+Route::get('/buyers', 'PagesController@buyers')->name('buyers');
+Route::get('/sellers', 'PagesController@sellers')->name('sellers');
 
 // Listings
 Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index')->middleware('auth');
