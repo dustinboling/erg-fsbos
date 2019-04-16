@@ -46,10 +46,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                'dustin@eugenerealtygroup.com',
-                'shannon@eugenerealtygroup.com',
-            ]);
+            if ( $user->hasRole('agent') || $user->hasRole('admin') || $user->hasRole('webmaster') )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            // return in_array($user->email, [
+            //     'dustin@eugenerealtygroup.com',
+            //     'shannon@eugenerealtygroup.com',
+            // ]);
         });
     }
 
@@ -76,7 +84,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+        ];
     }
 
     /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3449691df376958e1ff9b5db729b4573",
+    "content-hash": "0caa1578d79d3eb676cef488a8dd8899",
     "packages": [
         {
             "name": "benjaminhirsch/nova-slug-field",
@@ -4156,6 +4156,49 @@
                 "environment"
             ],
             "time": "2019-01-29T11:11:52+00:00"
+        },
+        {
+            "name": "vyuldashev/nova-permission",
+            "version": "v1.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vyuldashev/nova-permission.git",
+                "reference": "eb5c51756eee6f236f5af5d74156afe0479ea85f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vyuldashev/nova-permission/zipball/eb5c51756eee6f236f5af5d74156afe0479ea85f",
+                "reference": "eb5c51756eee6f236f5af5d74156afe0479ea85f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "spatie/laravel-permission": "^2.16"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vyuldashev\\NovaPermission\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vyuldashev\\NovaPermission\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool for Spatie's Permission library.",
+            "keywords": [
+                "laravel",
+                "nova",
+                "spatie-permission"
+            ],
+            "time": "2019-04-09T20:32:39+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",

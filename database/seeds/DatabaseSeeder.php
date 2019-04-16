@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
+        $this->call(RolesAndPermissionsSeeder::class);
         factory('App\Listing', 24)->create();
     }
 }

@@ -7,7 +7,6 @@ $factory->define(App\Listing::class, function (Faker $faker) {
         //
         'city_id' => rand(1,30),
         'street_address' => $faker->buildingNumber() . " " . $faker->streetName(),
-        // 'city' => $faker->city(),
         'zip' => rand(97001, 97920),
         'price' => $faker->numberBetween(89, 999) * 1000,
         'beds' => $faker->numberBetween(2, 4),
