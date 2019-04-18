@@ -14,23 +14,23 @@ class UsersTableSeeder extends Seeder
         // Insert the initial users
         DB::table('users')->insert([
             [
-                'name' => 'Dustin Boling',
-                'email' => 'dustin@eugenerealtygroup.com',
+                'name' => 'Dustin',
+                'email' => 'dustin@example.com',
                 'password' => bcrypt('123456'),
             ],
             [
-                'name' => 'Shannon Doyle',
-                'email' => 'shannon@eugenerealtygroup.com',
+                'name' => 'Shannon',
+                'email' => 'shannon@example.com',
                 'password' => bcrypt('123456'),
             ],
             [
-                'name' => 'Matt Doyle',
-                'email' => 'matt@eugenerealtygroup.com',
+                'name' => 'Matt',
+                'email' => 'matt@example.com',
                 'password' => bcrypt('123456'),
             ],
             [
-                'name' => 'Veronica Weidmann',
-                'email' => 'veronica@eugenerealtygroup.com',
+                'name' => 'Veronica',
+                'email' => 'veronica@example.com',
                 'password' => bcrypt('123456'),
             ]
         ]);

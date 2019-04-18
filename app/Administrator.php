@@ -7,11 +7,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Administrator extends Authenticatable
 {
     use HasRoles, Notifiable;
 
-    protected $guard = 'web';
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
