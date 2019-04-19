@@ -4,7 +4,8 @@
         <?php $isActive = 'active' ?>
         @foreach ($images as $image)
         <div class="carousel-item {{ $isActive }}">
-            {{ $image('slide', ['class' => 'd-block w-100 rounded shadow-sm']) }}
+            <img class="d-block w-100" src="{{ $image->getUrl('slide') }}" alt="{{ $listing->city->name }}, {{ $listing->state }} home for sale by owner">
+            {{-- $image('slide', ['class' => 'd-block w-100 rounded shadow-sm']) --}}
         </div>
         <?php $isActive = '' ?>
         @endforeach
