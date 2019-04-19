@@ -48,7 +48,7 @@ class Listing extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
-        ->crop('crop-center', 1920, 1080) // 1080P resolution
+        ->crop('crop-center', 825, 464) // 16:9 Ratio
         ->withResponsiveImages();
 
         $this->addMediaConversion('square')
