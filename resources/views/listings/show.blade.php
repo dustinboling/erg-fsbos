@@ -45,7 +45,7 @@
                             <div class="card-header font-weight-bolder">Request More About this Property</div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Contact <strong>{{ $listing->agent->name }}</strong> at <strong>{{ $listing->agent->phone }}</strong></li>
-                                <li class="list-group-item">Call <strong>888-555-1212</strong> and enter code <strong>{{ $listing->call_code }}</strong></li>
+                                <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong></li>
                                 <li class="list-group-item">Text <strong>{{ $listing->text_code }}</strong> to 88000</li>
                                 <li class="list-group-item"><a class="btn btn-primary w-100" href="mailto:{{ $listing->agent->email }}">Send an Email to Buyer Agent</a></li>
                             </ul>
