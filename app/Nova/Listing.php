@@ -128,7 +128,7 @@ class Listing extends Resource
                 ->conversionOnView('square') // conversion used on the model's view
                 ->thumbnail('square') // conversion used to display the image on the model's index page
                 ->multiple() // enable upload of multiple images - also ordering
-                ->singleImageRules('dimensions:min_width=1280')
+                ->singleImageRules('dimensions:min_width=825')
                 ->hideFromIndex(),
         ];
     }
