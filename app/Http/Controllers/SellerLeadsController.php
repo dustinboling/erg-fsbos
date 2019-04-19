@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\SellerLead;
 use Illuminate\Http\Request;
+use App\Mail\SellerFormSubmitted;
+use Illuminate\Support\Facades\Mail;
 
 class SellerLeadsController extends Controller
 {
@@ -35,7 +37,7 @@ class SellerLeadsController extends Controller
      */
     public function store(Request $request)
     {
-        SellerLead::create(request()->validate([
+        $seller = SellerLead::create(request()->validate([
             'first_name' => 'required|min:2',
             'last_name' => 'required|min:2',
             'phone' => 'required|min:10',
@@ -47,6 +49,9 @@ class SellerLeadsController extends Controller
             'postal_code' => 'present',
             'message' => 'present',
         ]));
+
+        Mail::to('dustin@eugenerealtygroup.com', 'Dustin Boling')
+            ->send(new SellerFormSubmitted($seller));
 
         return back()
             ->withInput()

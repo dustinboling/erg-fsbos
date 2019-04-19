@@ -14,7 +14,7 @@ class SellerLead extends Model
     protected $fillable = [
         'first_name', 'last_name',
         'phone', 'email',
-        'address_line_1', 'address_line_1', 'city', 'state', 'postal_code',
+        'address_line_1', 'address_line_2', 'city', 'state', 'postal_code',
         'latitude', 'longitude',
         'message',
     ];
