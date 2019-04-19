@@ -14,7 +14,10 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $cities = City::orderBy('name', 'asc')->get();
+        $cities = City::orderBy('name', 'asc')
+            ->where('live', true)
+            ->get();
+
         return view('cities.index', compact('cities'));
     }
 
@@ -47,6 +50,11 @@ class CitiesController extends Controller
      */
     public function show(City $city)
     {
+        if(!$city->live)
+        {
+            abort(404);
+        }
+
         return view('cities.show', compact('city'));
     }
 

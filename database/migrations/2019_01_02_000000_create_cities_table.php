@@ -20,6 +20,7 @@ class CreateCitiesTable extends Migration
             $table->string('title')->default('Homes For Sale by Owner');
             $table->string('slug');
             $table->text('content')->nullable();
+            $table->boolean('live')->default(1);
             $table->timestamps();
         });
     }

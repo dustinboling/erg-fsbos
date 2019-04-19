@@ -6,6 +6,8 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use App\Nova\Filters\LiveCities;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use App\Nova\Metrics\CitiesCount;
 use App\Nova\Metrics\ListingsPerCity;
@@ -56,7 +58,7 @@ class City extends Resource
     {
         return [
             ID::make()->sortable(),
-            HasMany::make('Listings'),
+            Boolean::make('Live')->sortable(),
             TextWithSlug::make('City Name', 'name')
                 ->slug('URL Slug')
                 ->rules('required')
@@ -72,6 +74,8 @@ class City extends Resource
                 ->conversionOnView('square') // conversion used on the model's view
                 ->thumbnail('square') // conversion used to display the image on the model's index page
                 ->singleImageRules('dimensions:min_width=512'), // validation rules for the collection of images
+
+            HasMany::make('Listings')
         ];
     }
 
@@ -94,7 +98,9 @@ class City extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new LiveCities,
+        ];
     }
 
     /**
