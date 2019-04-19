@@ -61,6 +61,7 @@ class City extends Resource
                 ->slug('URL Slug')
                 ->rules('required')
                 ->sortable(),
+            Text::make('State'),
             Slug::make('URL Slug', 'slug')
                 ->rules('required'),
             Text::make('SEO Title', 'title')
@@ -82,10 +83,7 @@ class City extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new CitiesCount)->width('1/4'),
-            (new ListingsPerCity)->width('1/4'),
-        ];
+        return [];
     }
 
     /**
