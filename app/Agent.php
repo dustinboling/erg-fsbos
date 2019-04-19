@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Administrator extends Authenticatable
+class Agent extends Authenticatable
 {
     use HasRoles, Notifiable;
 
@@ -30,4 +30,12 @@ class Administrator extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the listings for the agent
+     */
+    public function listings()
+    {
+        return $this->hasMany('App\Listing');
+    }
 }

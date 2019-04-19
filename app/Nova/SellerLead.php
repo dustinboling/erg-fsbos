@@ -131,10 +131,7 @@ class SellerLead extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new SellerLeadsCount)->width('1/4'),
-            (new SellerLeadsPerDay)->width('3/4'),
-        ];
+        return [];
     }
 
     /**

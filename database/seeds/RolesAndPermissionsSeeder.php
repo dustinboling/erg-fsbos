@@ -1,6 +1,6 @@
 <?php
 use App\User;
-use App\Administrator;
+use App\Agent;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -12,7 +12,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // Create Administrator Permissions and Roles
+        // Guard: admin
         // create Users permissions
         Permission::create(['guard_name' => 'admin', 'name' => 'create users']);
         Permission::create(['guard_name' => 'admin', 'name' => 'view users']);
@@ -20,19 +20,12 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['guard_name' => 'admin', 'name' => 'delete users']);
         Permission::create(['guard_name' => 'admin', 'name' => 'forceDelete users']);
 
-        // create Roles permissions
-        Permission::create(['guard_name' => 'admin', 'name' => 'create roles']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'view roles']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'update roles']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'delete roles']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'forceDelete roles']);
-
-        // create Permissions permissions
-        Permission::create(['guard_name' => 'admin', 'name' => 'create permissions']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'view permissions']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'update permissions']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'delete permissions']);
-        Permission::create(['guard_name' => 'admin', 'name' => 'forceDelete permissions']);
+        // create Agents permissions
+        Permission::create(['guard_name' => 'admin', 'name' => 'create agents']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'view agents']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'update agents']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'delete agents']);
+        Permission::create(['guard_name' => 'admin', 'name' => 'forceDelete agents']);
 
         // create Cities permissions
         Permission::create(['guard_name' => 'admin', 'name' => 'create cities']);
@@ -56,16 +49,6 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['guard_name' => 'admin', 'name' => 'forceDelete leads']);
 
         // create roles and assign created permissions
-
-        // this can be done as separate statements
-        // $role = Role::create(['name' => 'agent']);
-        // $role->givePermissionTo('update listings');
-
-        // or may be done by chaining
-
-        // create a super-admin role and give it all permissions
-        $role = Role::create(['guard_name' => 'admin', 'name' => 'webmaster'])->givePermissionTo(Permission::all());
-
         // Agents
         $role = Role::create(['guard_name' => 'admin', 'name' => 'agent'])
             ->givePermissionTo([
@@ -77,8 +60,8 @@ class RolesAndPermissionsSeeder extends Seeder
                 'update leads'
             ]);
 
-        // Admins
-        $role = Role::create(['guard_name' => 'admin', 'name' => 'admin'])
+        // Agent Admins
+        $role = Role::create(['guard_name' => 'admin', 'name' => 'agent-admin'])
             ->givePermissionTo([
                 'create cities',
                 'view cities',
@@ -95,25 +78,19 @@ class RolesAndPermissionsSeeder extends Seeder
                 'create users',
                 'view users',
                 'update users',
-                'delete users'
+                'delete users',
+                'create agents',
+                'view agents',
+                'update agents',
+                'delete agents'
             ]);
 
-        $admin = Administrator::find(1)->assignRole('webmaster');
-        $admin = Administrator::find(2)->assignRole('admin');
-        $admin = Administrator::find(3)->assignRole('agent');
+        // Create a super-admin (webmaster) role and give it all permissions
+        $role = Role::create(['guard_name' => 'admin', 'name' => 'webmaster'])->givePermissionTo(Permission::all());
 
-
-        // Create User Permissions and Roles
-        // create Listings permissions
-        Permission::create(['guard_name' => 'web', 'name' => 'view listings']);
-
-        // create roles and assign created permissions
-        // Subscribers
-        $role = Role::create(['guard_name' => 'web', 'name' => 'subscriber'])
-        ->givePermissionTo([
-            'view listings'
-        ]);
-
-        $user = User::find(1)->assignRole('subscriber');
+        // Assign roles to the first few agents
+        $agent = Agent::find(1)->assignRole('webmaster');
+        $agent = Agent::find(2)->assignRole('agent-admin');
+        $agent = Agent::find(3)->assignRole('agent');
     }
 }

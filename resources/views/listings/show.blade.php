@@ -4,13 +4,6 @@
 
 @section('content')
 <div class="container listing-show">
-    <div class="row call-code my-5">
-        <div class="col text-center">
-            <h2 style="color:#26A7DE;font-weight:400;">
-                Call <span style="color:#43C143;font-weight:700">1-855-555-1212</span> and enter code <span style="color:#43C143;font-weight:700">ERG{{ $listing->id }}</span> for a description of this property
-            </h2>
-        </div>
-    </div>
     <div class="row listing">
        <div class="col">
             <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm">
@@ -47,9 +40,16 @@
                             {!! $listing->description !!}
                         </div>
                     </div>
-                    <div class="col-12 col-md-5">
+                    <div class="col-12 col-md-4">
                         <div class="request-form card">
                             <div class="card-header font-weight-bolder">Request More About this Property</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Contact <strong>{{ $listing->agent->name }}</strong> at <strong>{{ $listing->agent->phone }}</strong></li>
+                                <li class="list-group-item">Call <strong>888-555-1212</strong> and enter code <strong>{{ $listing->call_code }}</strong></li>
+                                <li class="list-group-item">Text <strong>{{ $listing->text_code }}</strong> to 88000</li>
+                                <li class="list-group-item"><a class="btn btn-primary w-100" href="mailto:{{ $listing->agent->email }}">Send an Email to Buyer Agent</a></li>
+                            </ul>
+                            {{--
                             <div class="card-body">
                                 @if ($errors->any())
                                 <div class="alert alert-danger" role="alert">
@@ -60,7 +60,7 @@
                                     </ul>
                                 </div>
                                 @endif
-                                <form action="{{ route('leads.store') }}" method="post">
+                                <form action="" method="post">
                                     @csrf
                                     <input type="hidden" name="listing_id" value="{{ $listing->id }}">
                                     <div class="form-row form-group">
@@ -88,7 +88,9 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>{{-- /.card-body --}}
+                            </div>
+                            --}}
+                            {{-- /.card-body --}}
                         </div>{{-- /.card --}}
                     </div>
                 </div>

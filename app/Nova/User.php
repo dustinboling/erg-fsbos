@@ -16,7 +16,7 @@ class User extends Resource
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\User';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -39,7 +39,7 @@ class User extends Resource
     *
     * @var string
     */
-    public static $group = 'Settings';
+    public static $group = 'Users';
 
     /**
      * Get the fields displayed by the resource.
@@ -68,6 +68,7 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
+
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class)
         ];

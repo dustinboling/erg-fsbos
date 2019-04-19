@@ -50,10 +50,15 @@ class ListingsController extends Controller
      */
     public function show(Listing $listing)
     {
+        if(!$listing->live)
+        {
+            abort(404);
+        }
+
         $images = $listing->getMedia('gallery');
         $similarListings = Listing::latest()
             ->where([
-                ['is_live', true],
+                ['live', true],
                 ['id', '!=', $listing->id],
                 ['city_id', $listing->city->id],
             ])

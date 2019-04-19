@@ -5,7 +5,7 @@ namespace App\Nova\Filters;
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
 
-class LiveListings extends Filter
+class FeaturedListings extends Filter
 {
     /**
      * The filter's component.
@@ -24,7 +24,7 @@ class LiveListings extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        return $query->where('live', $value);
+        return $query->where('featured', $value);
     }
 
     /**
@@ -36,8 +36,8 @@ class LiveListings extends Filter
     public function options(Request $request)
     {
         return [
-            'Live' => 1,
-            'Not Live' => 0,
+            'Featured' => 1,
+            'Not Featured' => 0,
         ];
     }
 }

@@ -5,20 +5,20 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use App\Nova\Metrics\LeadsCount;
-use App\Nova\Metrics\LeadsPerDay;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Lead extends Resource
+class Agent extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Lead';
+    public static $model = 'App\Agent';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -33,7 +33,7 @@ class Lead extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email', 'listing_id'
+        'id', 'name', 'email'
     ];
 
     /**
@@ -41,27 +41,7 @@ class Lead extends Resource
     *
     * @var string
     */
-    public static $group = 'Leads';
-
-    /**
-     * Get the displayable label of the resource.
-     *
-     * @return string
-     */
-    public static function label()
-    {
-        return "Buyer Leads";
-    }
-
-    /**
-     * Get the displayable singular label of the resource.
-     *
-     * @return string
-     */
-    public static function singularLabel()
-    {
-        return "Buyer Lead";
-    }
+    public static $group = 'Users';
 
     /**
      * Get the fields displayed by the resource.
@@ -73,13 +53,31 @@ class Lead extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Listing'),
+
+            //Gravatar::make(),
+
             Text::make('Name')
                 ->sortable()
-                ->rules('required', 'string'),
-            Text::make('Phone'),
-            Text::make('Email')->rules('required', 'email'),
-            Textarea::make('Message')->alwaysShow(),
+                ->rules('required', 'max:255'),
+
+            Text::make('Phone')
+                ->rules('required'),
+
+            Text::make('Email')
+                ->sortable()
+                ->rules('required', 'email', 'max:254')
+                ->creationRules('unique:agents,email')
+                ->updateRules('unique:agents,email,{{resourceId}}'),
+
+            Password::make('Password')
+                ->onlyOnForms()
+                ->creationRules('required', 'string', 'min:6')
+                ->updateRules('nullable', 'string', 'min:6'),
+
+            HasMany::make('Listings'),
+
+            MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
+            MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class)
         ];
     }
 
@@ -91,10 +89,7 @@ class Lead extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new LeadsCount)->width('1/4'),
-            (new LeadsPerDay)->width('3/4'),
-        ];
+        return [];
     }
 
     /**

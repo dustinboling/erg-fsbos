@@ -3,9 +3,9 @@
 namespace App;
 
 use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Illuminate\Database\Eloquent\Model;
 
 class Listing extends Model implements HasMedia
 {
@@ -18,6 +18,33 @@ class Listing extends Model implements HasMedia
     */
     protected $guarded = [];
 
+    /**
+     * Get the agent that owns the listing
+     */
+    public function agent()
+    {
+        return $this->belongsTo('App\Agent', 'agent_id', 'id');
+    }
+
+    /**
+     * Get the city that owns the listing
+     */
+    public function city()
+    {
+        return $this->belongsTo('App\City', 'city_id', 'id');
+    }
+
+    /**
+     * Register Spatie Medialibrary collections
+     */
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('gallery');
+    }
+
+    /**
+     * Register Spatie Medialibrary conversions
+     */
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
@@ -27,20 +54,5 @@ class Listing extends Model implements HasMedia
         $this->addMediaConversion('square')
         ->crop('crop-center', 512, 512)
         ->withResponsiveImages();
-    }
-
-    public function registerMediaCollections()
-    {
-        $this->addMediaCollection('gallery');
-    }
-
-    public function city()
-    {
-        return $this->belongsTo('App\City', 'city_id', 'id');
-    }
-
-    public function leads()
-    {
-        return $this->hasMany('App\Lead');
     }
 }

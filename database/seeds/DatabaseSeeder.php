@@ -12,9 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
-        $this->call(AdministratorsTableSeeder::class);
+        $this->call(AgentsTableSeeder::class);
+        $this->call(AdminsTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
         $this->call(RolesAndPermissionsSeeder::class);
-        factory('App\Listing', 24)->create();
+        factory('App\Listing', 48)->create();
     }
 }

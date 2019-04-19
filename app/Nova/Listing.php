@@ -10,10 +10,11 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Heading;
 use App\Nova\Filters\LiveListings;
 use App\Nova\Metrics\ListingCount;
 use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Filters\FeaturedListings;
 use App\Nova\Metrics\ListingsPerMonth;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -40,7 +41,7 @@ class Listing extends Resource
     * @var array
     */
     public static $search = [
-        'id', 'street_address', 'zip', 'community', 'neighborhood'
+        'id', 'street_address', 'zip', 'call_code', 'text_code'
     ];
 
     /**
@@ -48,7 +49,7 @@ class Listing extends Resource
     *
     * @var string
     */
-    public static $group = 'Admin';
+    public static $group = 'Content';
 
     /**
     * Get the fields displayed by the resource.
@@ -59,20 +60,26 @@ class Listing extends Resource
     public function fields(Request $request)
     {
         return [
-            Boolean::make('Live?','is_live')->sortable(),
-            //Text::make('Status')->sortable(),
-            Select::make('Status')->options([
-                'Coming Soon' => 'Coming Soon',
-                'For Sale by Owner' => 'For Sale',
-                'Pending' => 'Pending',
-                'Sold' => 'Sold',
-            ])->rules('required')->sortable(),
-            Number::make('Price')->rules('required')->sortable(),
-            new Panel('Location', $this->locationFields()),
-            new Panel('Features', $this->featureFields()),
-            new Panel('Photos', $this->photoField()), // validation rules for the collection of images
+            Heading::make('<h3 class="">Website Status</h3>')->asHtml(),
             ID::make()->hideFromIndex(),
-            HasMany::make('Leads'),
+            Boolean::make('Live')->sortable(),
+            Boolean::make('Featured')->sortable(),
+
+            Heading::make('<h3 class="">Listing Info</h3>')->asHtml(),
+            Select::make('Status')
+                ->options(['For Sale by Owner' => 'For Sale', 'Sold' => 'Sold'])
+                ->withMeta(['value' => 'For Sale by Owner'])
+                ->rules('required')
+                ->sortable()
+                ->hideFromIndex(),
+            BelongsTo::make('Agent'),
+            Number::make('Price')->rules('required')->sortable(),
+            Text::make('Call Code')->hideFromIndex(),
+            Text::make('Text Code')->hideFromIndex(),
+
+            new Panel('Location', $this->locationFields()),
+            new Panel('Property Features', $this->featureFields()),
+            new Panel('Photos', $this->photoField()), // validation rules for the collection of images
         ];
     }
 
@@ -84,12 +91,11 @@ class Listing extends Resource
     public function locationFields()
     {
         return [
+            Heading::make('<h3 class="">Address</h3>')->asHtml(),
             Text::make('Street Address')->rules('required'),
             BelongsTo::make('City'),
             Text::make('State')->rules('required')->hideFromIndex(),
             Text::make('Zip')->rules('required')->sortable(),
-            Text::make('Community')->sortable()->hideFromIndex(),
-            Text::make('Neighborhood')->sortable()->hideFromIndex(),
         ];
     }
 
@@ -101,9 +107,9 @@ class Listing extends Resource
     public function featureFields()
     {
         return [
+            Heading::make('<h3 class="">Property Features</h3>')->asHtml(),
             Number::make('Beds')->rules('required')->sortable(),
             Number::make('Baths')->rules('required')->sortable(),
-            Number::make('Half Baths')->rules('required')->hideFromIndex(),
             Number::make('Sqft')->rules('required')->sortable(),
             Trix::make('Description')->alwaysShow(),
         ];
@@ -151,6 +157,7 @@ class Listing extends Resource
     {
         return [
             new LiveListings,
+            new FeaturedListings,
         ];
     }
 

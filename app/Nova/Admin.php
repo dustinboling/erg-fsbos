@@ -5,19 +5,18 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Administrator extends Resource
+class Admin extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Administrator';
+    public static $model = 'App\Admin';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -40,7 +39,7 @@ class Administrator extends Resource
     *
     * @var string
     */
-    public static $group = 'Settings';
+    public static $group = 'Users';
 
     /**
      * Get the fields displayed by the resource.
@@ -53,7 +52,7 @@ class Administrator extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
+            //Gravatar::make(),
 
             Text::make('Name')
                 ->sortable()
@@ -69,6 +68,7 @@ class Administrator extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
+
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class)
         ];

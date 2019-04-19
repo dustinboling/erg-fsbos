@@ -32,8 +32,6 @@ Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('ci
 // Leads
 Route::post('seller-leads', 'SellerLeadsController@store')->name('seller-leads.store');
 //Route::resource('seller-leads', 'SellerLeadsController')->middleware('auth');
-Route::post('leads', 'LeadsController@store')->name('leads.store');
-//Route::resource('leads', 'LeadsController');
 
 // Mailchimp
 Route::resource('subscribe', 'SubscribersController');
