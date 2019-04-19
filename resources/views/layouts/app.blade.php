@@ -41,7 +41,8 @@
                         {{-- Authentication Links --}}
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="tel:5417996622">(541) 799-6622</a>
+                            {{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
                         </li>
                         @if (Route::has('register'))
                         {{-- <li class="nav-item">
@@ -83,7 +84,7 @@
                         <div class="card sponsor text-center">
                             <div class="card-body">
                                 <a class="d-block float-left mt-2" href="https://www.eugenerealtygroup.com/" target="_blank"><img src="{{ asset('img/eugene-realty-logo.png') }}" alt="Eugene Realty Group" width="116px" height="50px"></a>
-                                <p class="card-text text-muted"><em>This free public listing service is sponsored by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon. (541) 799-6622</em></p>
+                                <p class="card-text text-muted"><em>This free marketing service is provided by <a href="https://www.eugenerealtygroup.com/" target="_blank">Eugene Realty Group</a>, a full-service real estate brokerage licensed in Oregon.</em></p>
                             </div>
                         </div>
                     </div>
