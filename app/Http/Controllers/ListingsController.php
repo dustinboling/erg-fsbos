@@ -15,7 +15,7 @@ class ListingsController extends Controller
     public function index()
     {
         $listings = Listing::orderBy('price', 'desc')
-            ->where('is_live', true)
+            ->where('live', true)
             ->get();
 
         return view('listings.index', compact('listings'));
@@ -124,7 +124,7 @@ class ListingsController extends Controller
 
         $listings = Listing::orderBy('price', 'desc')
             ->where([
-                ['is_live', true],
+                ['live', true],
                 ['beds', '>=', (int)$validatedData['beds']],
                 ['baths', '>=', (int)$validatedData['baths']],
                 ['sqft', '>=', (int)$validatedData['sqft']],
