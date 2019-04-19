@@ -10,9 +10,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-header">Send us an email message using this form</div>
+                            <div class="card-header">Send Us an Email</div>
                             <div class="card-body">
-                                <form action="{{ route('contact') }}" method="post">
+                                <form action="{{ route('contact.store') }}" method="post">
                                     @csrf
                                     <div class="form-row form-group">
                                         <div class="col"><input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name"></div>
@@ -39,7 +39,13 @@
                         </div>{{-- .card --}}
                     </div>
                     <div class="col-md-6">
-                        <img class="w-100 rounded shadow-sm" src="https://picsum.photos/540/?random" alt="Contact Eugene Realty Group">
+                        <div class="card">
+                            <div class="card-header">Call Us</div>
+                            <div class="card-body">
+                                <h3 class="text-center">(541) 799-6622</h3>
+                            </div>
+                        </div>{{-- .card --}}
+
                     </div>
                 </div>
             </div>

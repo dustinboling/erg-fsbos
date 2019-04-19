@@ -16,7 +16,8 @@ Route::get('/', function () {
 
 // Pages
 Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
-Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/contact', 'ContactFormSubmissionsController@create')->name('contact');
+Route::post('/contact', 'ContactFormSubmissionsController@store')->name('contact.store');
 Route::get('/buyers', 'PagesController@buyers')->name('buyers');
 Route::get('/sellers', 'PagesController@sellers')->name('sellers');
 
