@@ -15,24 +15,24 @@ Route::get('/', function () {
 });
 
 // Pages
-Route::get('/home', 'PagesController@home')->name('home')->middleware('auth');
+Route::get('/home', 'PagesController@home')->name('home');
 Route::get('/contact', 'ContactFormSubmissionsController@create')->name('contact');
 Route::post('/contact', 'ContactFormSubmissionsController@store')->name('contact.store');
 Route::get('/buyers', 'PagesController@buyers')->name('buyers');
 Route::get('/sellers', 'PagesController@sellers')->name('sellers');
 
 // Listings
-Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index')->middleware('auth');
-Route::get('/for-sale-by-owner/{listing}', 'ListingsController@show')->name('listings.show')->middleware('auth');
-Route::get('/search', 'ListingsController@search')->name('listings.search')->middleware('auth');
+Route::get('/for-sale-by-owner', 'ListingsController@index')->name('listings.index');
+Route::get('/for-sale-by-owner/{listing}', 'ListingsController@show')->name('listings.show');
+Route::get('/search', 'ListingsController@search')->name('listings.search');
 
 // Cities
-Route::get('/cities', 'CitiesController@index')->name('cities.index')->middleware('auth');
-Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('cities.show')->middleware('auth');
+Route::get('/cities', 'CitiesController@index')->name('cities.index');
+Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('cities.show');
 
 // Leads
 Route::post('seller-leads', 'SellerLeadsController@store')->name('seller-leads.store');
-//Route::resource('seller-leads', 'SellerLeadsController')->middleware('auth');
+//Route::resource('seller-leads', 'SellerLeadsController');
 
 // Mailchimp
 Route::resource('subscribe', 'SubscribersController');
