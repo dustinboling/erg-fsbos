@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Listing;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function home()
     {
-        $listings = \App\Listing::latest()
-            ->where('is_live', true)
+        $listings = Listing::latest()
+            ->where('live', true)
             ->take(8)
             ->get();
-        return view('home', compact('listings'));
+        $featured = Listing::latest()
+            ->where([
+                ['live', true],
+                ['featured', true]
+            ])
+            ->take(3)
+            ->get();
+        return view('home', compact('listings','featured'));
     }
 
     public function about()

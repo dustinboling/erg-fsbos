@@ -8,21 +8,23 @@
         <div class="col">
             {{--  CAROUSEL  --}}
             <div id="carouselHomeIndicators" class="carousel slide" data-ride="carousel">
+                {{--
                 <ol class="carousel-indicators">
                     <li data-target="#carouselHomeIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselHomeIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselHomeIndicators" data-slide-to="2"></li>
                 </ol>
+                --}}
                 <div class="carousel-inner shadow-sm rounded">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://picsum.photos/1110/624/?random&{{ rand() }}" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://picsum.photos/1110/624/?random&{{ rand() }}" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://picsum.photos/1110/624/?random&{{ rand() }}" alt="Third slide">
-                    </div>
+                    @foreach ($featured as $featuredListing)
+                        <div class="carousel-item {{ $loop->first ? 'active' : ''}}">
+                            <img class="d-block w-100" src="{{ $featuredListing->getFirstMediaUrl('gallery','slide') }}" alt="{{ $featuredListing->city->name }}, {{ $featuredListing->state }} home for sale by owner">
+                            <div class="carousel-caption d-none d-md-block" style="background-color:rgba(255,255,255,0.85)">
+                                <h2>{{ $featuredListing->beds }} Bed, {{ $featuredListing->baths }} Bath, {{ $featuredListing->sqft }}SF, ${{ number_format($featuredListing->price) }}</h2>
+                                <h4 class="text-dark">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h4>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselHomeIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
