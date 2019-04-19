@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col mb-4">
             {{--  CAROUSEL  --}}
             <div id="carouselHomeIndicators" class="carousel slide" data-ride="carousel">
                 {{--
@@ -20,7 +20,7 @@
                             @if ($featuredListing->hasMedia('gallery'))
                                 <div class="carousel-item {{ $loop->first ? 'active' : ''}}">
                                     <img class="d-block w-100" src="{{ $featuredListing->getFirstMediaUrl('gallery','slide') }}" alt="{{ $featuredListing->city->name }}, {{ $featuredListing->state }} home for sale by owner">
-                                    <div class="carousel-caption d-none d-md-block rounded" style="background-color:rgba(255,255,255,0.8)">
+                                    <div class="carousel-caption d-none d-sm-block rounded" style="background-color:rgba(255,255,255,0.8)">
                                         <h2 class="font-weight-bolder">{{ $featuredListing->beds }} Bed, {{ $featuredListing->baths }} Bath, {{ $featuredListing->sqft }}SF, ${{ number_format($featuredListing->price) }}</h2>
                                         <h4 class="text-dark font-weight-normal">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h4>
                                     </div>
