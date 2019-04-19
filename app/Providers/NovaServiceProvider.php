@@ -62,7 +62,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         return [
             //new Help,
             (new ListingCount)->width('1/4'),
-            (new CitiesCount)->width('1/4'),
         ];
     }
 
