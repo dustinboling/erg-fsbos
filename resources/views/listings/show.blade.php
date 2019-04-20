@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-sm">
                     <div class="card mb-4">
-                        <div class="card-header font-weight-bolder">Get More Details</div>
+                        <div class="card-header bg-primary text-light py-2">Get More Details</div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong> for an audio tour</li>
                             <li class="list-group-item">Text code <strong>{{ $listing->text_code }}</strong> to <strong>88000</strong> for a mobile tour</li>
@@ -58,13 +58,13 @@
                 </div>
                 <div class="col-sm">
                     <div class="card">
-                        <div class="card-header font-weight-bolder">Talk to a Live Person</div>
+                        <div class="card-header bg-primary text-light py-2">Talk to a Live Person</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Buyer's Agent: <strong>{{ $listing->agent->name }}</strong></li>
-                            <li class="list-group-item">Phone: <strong>{{ $listing->agent->phone }}</strong></li>
+                            <li class="list-group-item"><strong>{{ $listing->agent->name }}</strong></li>
+                            <li class="list-group-item"><strong>{{ $listing->agent->phone }}</strong></li>
                             <li class="list-group-item d-flex justify-content-around">
-                                <a class="btn btn-primary" href="mailto:{{ $listing->agent->email }}">Email Agent</a>
-                                <a class="btn btn-secondary" href="tel:{{ $listing->agent->phone }}">Call Agent</a>
+                                <a class="btn btn-outline-secondary btn-sm" href="mailto:{{ $listing->agent->email }}">Email Me</a>
+                                <a class="btn btn-outline-secondary btn-sm" href="tel:{{ $listing->agent->phone }}">Call Me</a>
                             </li>
                         </ul>
                         {{--
