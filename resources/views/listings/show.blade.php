@@ -116,6 +116,7 @@
 
     </div>{{--/ .row.listing --}}
 
+    @if($similarListings->count())
     <div class="row py-5">
         <div class="col-md text-center">
             <h3 class="text-muted">More Homes For Sale by Owner in {{ $listing->city->name }}, Oregon</h3>
@@ -125,5 +126,6 @@
     <div class="row">
         @each('listings.partials.listingcard', $similarListings, 'listing')
     </div>{{--/ .row --}}
+    @endif
 </div>{{--/ .container.listing-show --}}
 @endsection
