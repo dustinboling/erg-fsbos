@@ -2,14 +2,12 @@
 <div id="carouselListing{{ $listing->id }}" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @foreach ($images as $image)
-        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+        <div class="carousel-item {{ $loop->first ? 'active' : '' }}"  data-interval="8500">
             <img class="d-block w-100" src="{{ $image->getUrl('slide') }}" alt="{{ $listing->city->name }}, {{ $listing->state }} home for sale by owner">
             {{-- $image('slide', ['class' => 'd-block w-100 rounded shadow-sm']) --}}
             @if ($loop->first)
                 <div class="carousel-caption d-none d-sm-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                    <h3 class="font-weight-bolder mb-0">{{ $listing->beds }} Bed <span>&#8226;</span> {{ $listing->baths }} Bath <span>&#8226;</span> {{ number_format($listing->sqft) }}SF <span>&#8226;</span> ${{ number_format($listing->price) }}</h3>
-                    <h4 class="shadow-sm mb-0">Text the code <strong>{{ $listing->text_code }}</strong> to the number <strong>88000</strong> for an instant tour on your mobile device!</h4>
-                    <h5 class="text-dark font-weight-normal mb-3">Home For Sale by Owner in {{ $listing->city->name }}, {{ $listing->state }}</h5>
+                    <h4 class="shadow-sm mb-0 font-weight-normal">Text the code <span style="font-family: 'futura-pt-condensed;font-weight:700;">{{ $listing->text_code }}</span> to the number <span style="font-family: 'futura-pt-condensed;font-weight:700;">88000</span> for an instant tour on your phone!</h4>
                 </div>
             @endif
         </div>
