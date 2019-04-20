@@ -15,18 +15,18 @@
                                 <form action="{{ route('contact.store') }}" method="post">
                                     @csrf
                                     <div class="form-row form-group">
-                                        <div class="col"><input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name"></div>
-                                        <div class="col"><input class="form-control" type="tel" name="phone" id="inputPhone" placeholder="Enter your phone number"></div>
+                                        <div class="col"><input class="form-control" type="name" name="name" id="inputName" placeholder="Enter your name" value="{{ old('name') }}"></div>
+                                        <div class="col"><input class="form-control" type="tel" name="phone" id="inputPhone" placeholder="Enter your phone number" value="{{ old('phone') }}"></div>
                                     </div>
                                     <div class="form-row form-group">
                                         <div class="col">
-                                            <input class="form-control" type="email" name="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address">
+                                        <input class="form-control" type="email" name="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address" value="{{ old('email') }}">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                     </div>
                                     <div class="form-row form-group">
                                         <div class="col">
-                                            <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="10" placeholder="Type your message"></textarea>
+                                        <textarea class="form-control" class="w-100" name="message" id="inputMessage" cols="30" rows="10" placeholder="Type your message">{{ old('message') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-row text-right">
