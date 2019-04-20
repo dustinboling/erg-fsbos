@@ -50,7 +50,7 @@ class SellerLeadsController extends Controller
             'message' => 'present',
         ]));
 
-        Mail::to('dustin@eugenerealtygroup.com', 'Dustin Boling')
+        Mail::to('wvfsbos@eugenerealtygroup.com', 'ERG FSBO Team')
             ->send(new SellerFormSubmitted($seller));
 
         return back()

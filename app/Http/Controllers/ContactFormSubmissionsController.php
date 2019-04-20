@@ -48,7 +48,7 @@ class ContactFormSubmissionsController extends Controller
 
         $submission = ContactFormSubmission::create($request->all());
 
-        Mail::to('dustin@eugenerealtygroup.com', 'Dustin Boling')
+        Mail::to('wvfsbos@eugenerealtygroup.com', 'ERG FSBO Team')
             ->send(new ContactFormSubmitted($submission));
 
        return back()->with('success', 'Thanks for contacting us!');
