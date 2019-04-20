@@ -5,7 +5,7 @@
 @section('content')
 <div class="container listing-show">
     <div class="row listing">
-       <div class="col">
+        <div class="col-md">
             <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm">
                 <ul class="listing-details d-flex flex-column flex-md-row justify-content-between text-center list-unstyled p-3 mb-2 rounded">
                     <li class="price d-flex listing-detail rounded px-4">
@@ -40,62 +40,80 @@
                             {!! $listing->description !!}
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="request-form card">
-                            <div class="card-header font-weight-bolder">Request More About this Property</div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Contact <strong>{{ $listing->agent->name }}</strong> at <strong>{{ $listing->agent->phone }}</strong></li>
-                                <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong></li>
-                                <li class="list-group-item">Text <strong>{{ $listing->text_code }}</strong> to 88000</li>
-                                <li class="list-group-item"><a class="btn btn-primary w-100" href="mailto:{{ $listing->agent->email }}">Email {{ $listing->agent->name }}</a></li>
-                            </ul>
-                            {{--
-                            <div class="card-body">
-                                @if ($errors->any())
-                                <div class="alert alert-danger" role="alert">
-                                    <ul class="list-unstyled mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
-                                <form action="" method="post">
-                                    @csrf
-                                    <input type="hidden" name="listing_id" value="{{ $listing->id }}">
-                                    <div class="form-row form-group">
-                                        <div class="col">
-                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name" required>
-                                        </div>
-                                        <div class="col">
-                                            <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel" name="phone" value="{{ old('phone') }}" id="inputPhone" placeholder="Enter your phone number" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-group">
-                                        <div class="col">
-                                            <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address" required>
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                        </div>
-                                    </div>
-                                    <div class="form-row form-group">
-                                        <div class="col">
-                                            <textarea class="form-control w-100" name="message" id="inputMessage" cols="30" rows="5" placeholder="Type your message">{{ old('message') }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-row text-right">
-                                        <div class="col">
-                                            <button type="submit" class="btn btn-primary">Send Request</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            --}}
-                            {{-- /.card-body --}}
-                        </div>{{-- /.card --}}
-                    </div>
                 </div>
             </div>{{--/ .listing-inner --}}
         </div>{{--/ .col --}}
+
+
+        <div class="col-12 col-lg-3 text-center">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card mb-4">
+                        <div class="card-header font-weight-bolder">Get More Details</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong> for an audio tour</li>
+                            <li class="list-group-item">Text code <strong>{{ $listing->text_code }}</strong> to <strong>88000</strong> for a mobile tour</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-header font-weight-bolder">Talk to a Live Person</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Buyer's Agent: <strong>{{ $listing->agent->name }}</strong></li>
+                            <li class="list-group-item">Phone: <strong>{{ $listing->agent->phone }}</strong></li>
+                            <li class="list-group-item d-flex justify-content-around">
+                                <a class="btn btn-primary" href="mailto:{{ $listing->agent->email }}">Email Agent</a>
+                                <a class="btn btn-secondary" href="tel:{{ $listing->agent->phone }}">Call Agent</a>
+                            </li>
+                        </ul>
+                        {{--
+                        <div class="card-body">
+                            @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <ul class="list-unstyled mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            <form action="" method="post">
+                                @csrf
+                                <input type="hidden" name="listing_id" value="{{ $listing->id }}">
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" value="{{ old('name') }}" id="inputName" placeholder="Enter your name" required>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="tel" name="phone" value="{{ old('phone') }}" id="inputPhone" placeholder="Enter your phone number" required>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email address" required>
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <textarea class="form-control w-100" name="message" id="inputMessage" cols="30" rows="5" placeholder="Type your message">{{ old('message') }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row text-right">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary">Send Request</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        --}}
+                        {{-- /.card-body --}}
+                    </div>{{-- /.card --}}
+                </div>
+            </div>
+        </div>
+
     </div>{{--/ .row.listing --}}
 
     <div class="row py-5">
