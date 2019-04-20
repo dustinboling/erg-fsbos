@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <main style="min-height:600px">
+        <main style="min-height:500px">
             @if (session('status'))
             <div class="container">
                 <div class="row">
