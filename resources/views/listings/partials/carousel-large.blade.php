@@ -7,9 +7,9 @@
             {{-- $image('slide', ['class' => 'd-block w-100 rounded shadow-sm']) --}}
             @if ($loop->first)
                 <div class="carousel-caption d-none d-sm-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                    <h4 class="shadow-sm">Text the code <strong>{{ $listing->text_code }}</strong> to the number <strong>88000</strong> for an instant tour on your mobile device!</h4>
-                    <h3 class="font-weight-bolder mb-0">{{ $listing->beds }} Bed, {{ $listing->baths }} Bath, {{ $listing->sqft }}SF, ${{ number_format($listing->price) }}</h3>
-                    <h5 class="text-dark font-weight-normal">Home For Sale by Owner in {{ $listing->city->name }}, {{ $listing->state }}</h5>
+                    <h3 class="font-weight-bolder mb-0">{{ $listing->beds }} Bed <span>&#8226;</span> {{ $listing->baths }} Bath <span>&#8226;</span> {{ number_format($listing->sqft) }}SF <span>&#8226;</span> ${{ number_format($listing->price) }}</h3>
+                    <h4 class="shadow-sm mb-0">Text the code <strong>{{ $listing->text_code }}</strong> to the number <strong>88000</strong> for an instant tour on your mobile device!</h4>
+                    <h5 class="text-dark font-weight-normal mb-3">Home For Sale by Owner in {{ $listing->city->name }}, {{ $listing->state }}</h5>
                 </div>
             @endif
         </div>
