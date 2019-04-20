@@ -51,7 +51,9 @@ class ContactFormSubmissionsController extends Controller
         Mail::to('wvfsbos@eugenerealtygroup.com', 'ERG FSBO Team')
             ->send(new ContactFormSubmitted($submission));
 
-       return back()->with('success', 'Thanks for contacting us!');
+        return back()
+            ->withInput()
+            ->with('status', 'Your message has been sent! We will be in touch with you shortly!');
     }
 
     /**
