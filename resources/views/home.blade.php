@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-9 mb-4">
             {{--  CAROUSEL  --}}
-            <div id="carouselHomeIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselHomeIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                 {{--
                 <ol class="carousel-indicators">
                     <li data-target="#carouselHomeIndicators" data-slide-to="0" class="active"></li>
