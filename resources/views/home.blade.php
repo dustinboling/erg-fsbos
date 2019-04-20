@@ -20,10 +20,11 @@
                         @if ($featuredListing->hasMedia('gallery'))
                             <div class="carousel-item {{ $loop->first ? 'active' : ''}}">
                                 <img class="d-block w-100" src="{{ $featuredListing->getFirstMediaUrl('gallery','slide') }}" alt="{{ $featuredListing->city->name }}, {{ $featuredListing->state }} home for sale by owner">
-                                {{-- <div class="carousel-caption d-none d-sm-block rounded" style="background-color:rgba(255,255,255,0.8)">
-                                    <h3 class="font-weight-bolder">{{ $featuredListing->beds }} Bed, {{ $featuredListing->baths }} Bath, {{ $featuredListing->sqft }}SF, ${{ number_format($featuredListing->price) }}</h3>
+                                <div class="carousel-caption d-none d-sm-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
+                                    <h4 class="shadow-sm">Text the code <strong>{{ $featuredListing->text_code }}</strong> to the number <strong>88000</strong> for an instant tour on your mobile device!</h4>
+                                    <h3 class="font-weight-bolder mb-0">{{ $featuredListing->beds }} Bed, {{ $featuredListing->baths }} Bath, {{ $featuredListing->sqft }}SF, ${{ number_format($featuredListing->price) }}</h3>
                                     <h5 class="text-dark font-weight-normal">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h5>
-                                </div> --}}
+                                </div>
                             </div>
                         @endif
                     @endforeach
