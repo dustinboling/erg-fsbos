@@ -1,5 +1,5 @@
 {{-- A small carousel for grid of cards --}}
-<div id="carouselListing{{ $listing->id }}" class="carousel slide" data-ride="carousel">
+<div id="carouselListing{{ $listing->id }}" class="carousel slide">
     <div class="carousel-inner">
         <?php $isActive = 'active' ?>
         @foreach ($images as $image)
