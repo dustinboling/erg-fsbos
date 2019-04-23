@@ -15,7 +15,7 @@
     {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@guest{{"guest"}}@endguest">
     <div id="app" class="h-100">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container">
@@ -28,12 +28,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('cities.index') }}">{{ __('Browse') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('listings.index') }}">{{ __('Search') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('cities.index') }}">{{ __('Browse') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('buyers') }}">{{ __('Buy') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('sellers') }}">{{ __('Sell') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
+                        <li class="nav-item"><a class="nav-link text-nowrap" href="tel:5417996622">(541) 799-6622</a></li>
                     </ul>
 
                     {{-- Right Side Of Navbar --}}
@@ -41,13 +41,12 @@
                         {{-- Authentication Links --}}
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="tel:5417996622">(541) 799-6622</a>
-                            {{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li> --}}
+                        </li>
                         @endif
                         @else
                         <li class="nav-item dropdown">
@@ -56,7 +55,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('nova.login') }}" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                <a href="{{ route('users.account') }}" class="dropdown-item">{{ __('My Account') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -77,7 +76,9 @@
             <div class="container">
                 <div class="row py-4">
                     <div id="wvfsbos" class="col-7 d-none d-md-block" style="line-height: 1.2;">
-                        <p class="wvfsbos-logo text-secondary mb-0" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder text-primary">FSBOs</span>.com</p>
+                        <p class="wvfsbos-logo mb-0">
+                            <a class="text-secondary" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder text-primary">FSBOs</span>.com</a>
+                        </p>
                         <p class="mb-0 text-muted"><em>The Most Complete Collection of Homes For Sale by Owner in the Willamette Valley</em></p>
                     </div>
                     <div class="col ml-auto" style="line-height: 1.2;">
