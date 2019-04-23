@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row listings">
         @each('listings.partials.listingcard', $listings, 'listing')
     </div>
 </div>
