@@ -35,8 +35,8 @@ h4, h5, h6 {
 }
 
 .navbar-laravel {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .navbar-fsbos {
@@ -44,10 +44,10 @@ h4, h5, h6 {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
-  font-weight: $font-weight-book;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
+    color: white;
+    font-weight: $font-weight-book;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
 }
 
 .navbar-brand.wvfsbos {
@@ -157,6 +157,11 @@ h4, h5, h6 {
 
 .page-footer {
     background: $primary;
+}
+
+.guest .blurrable {
+    filter: blur(9px) grayscale(70%);
+    -webkit-filter: blur(9px) grayscale(70%);
 }
 
 // Extra small devices (portrait phones, less than 576px)
