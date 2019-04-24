@@ -164,6 +164,17 @@ h4, h5, h6 {
     -webkit-filter: blur(9px) grayscale(70%);
 }
 
+// Carousel
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-control-next:focus,
+.carousel-control-prev:focus
+// .carousel-control-next:hover,
+// .carousel-control-prev:hover
+ {
+    opacity: 1;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
 
