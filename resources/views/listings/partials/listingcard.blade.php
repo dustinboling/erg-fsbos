@@ -11,7 +11,11 @@
                         </a>
                     </li>
                     <li class="list-group-item price">
-                        ${{ number_format($listing->price) }}
+                        @if ($listing->status == 'pending')
+                            <span class="text-warning">Pending Sale</span>
+                        @else
+                            ${{ number_format($listing->price) }}
+                        @endif
                     </li>
                     <li class="list-group-item mb-2">
                         <ul class="detail-list-group">
@@ -24,7 +28,7 @@
                         Web ID: <span class="text-muted">ERG-00{{ $listing->id }}</span>
                     </li> --}}
                 </ul>
-                <a href="{{ route('listings.show', $listing->id) }}" class="btn btn-details py-2">More Details</a>
+            <a href="{{ route('listings.show', $listing->id) }}" class="btn {{ $listing->status == 'pending' ? 'btn-warning' : 'btn-primary' }} btn-details py-2">More Details</a>
             </div>
 
         </div>

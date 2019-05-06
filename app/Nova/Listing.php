@@ -67,11 +67,14 @@ class Listing extends Resource
 
             Heading::make('<h3 class="">Listing Info</h3>')->asHtml(),
             Select::make('Status')
-                ->options(['For Sale by Owner' => 'For Sale', 'Sold' => 'Sold'])
-                ->withMeta(['value' => 'For Sale by Owner'])
+                ->options([
+                    'active' => 'Active',
+                    'pending' => 'Pending',
+                    'sold' => 'Sold'
+                ])
+                ->displayUsingLabels()
                 ->rules('required')
-                ->sortable()
-                ->hideFromIndex(),
+                ->sortable(),
             BelongsTo::make('Agent'),
             Number::make('Price')->rules('required')->sortable(),
             Text::make('Call Code')->hideFromIndex(),

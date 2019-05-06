@@ -9,7 +9,13 @@
             <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm">
                 <ul class="listing-details d-flex flex-column flex-md-row justify-content-between text-center list-unstyled p-3 mb-2 rounded">
                     <li class="price d-flex listing-detail rounded px-4">
-                        <div class="align-self-center">${{ number_format($listing->price) }}</div>
+                        <div class="align-self-center">
+                            @if ($listing->status == 'pending')
+                                <span class="text-warning">Pending Sale</span>
+                            @else
+                                ${{ number_format($listing->price) }}
+                            @endif
+                        </div>
                     </li>
                     <li class="beds d-flex listing-detail rounded px-4">
                         <div class="align-self-center">{{ $listing->beds }} <small>Beds</small></div>
