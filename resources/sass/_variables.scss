@@ -18,17 +18,31 @@ $font-weight-extra-bold: 800;
 
 // Colors
 $blue: #26A7DE;
+$blue-light: #6dd8ff;
+$blue-dark: #0078ac;
 $green: #43C143;
+$green-light: #7bf572;
+$green-dark: #008f0a;
 $primary: $blue;
+$primary-light: $blue-light;
+$primary-dark: $blue-dark;
 $secondary: $green;
+$secondary-light: $green-light;
+$secondary-dark: $green-dark;
 
 $border-color: #888888;
 
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$theme-colors: (
+    primary: $blue,
+    primary-light: $blue-light,
+    primary-dark: $blue-dark,
+    secondary: $green,
+    secondary-light: $green-light,
+    secondary-dark: $green-dark
+);
+
+// Links
+//
+// Style anchor elements.
+$link-color: theme-color("primary");
+$link-hover-color: darken($link-color, 100%);

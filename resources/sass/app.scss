@@ -4,8 +4,24 @@
 // Futura PT font family from Adobe Creative Cloud
 @import url("https://use.typekit.net/mlm6gmo.css");
 
+@import "~bootstrap/scss/functions";
+
 // Variables
 @import 'variables';
+
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// Required
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -19,6 +35,23 @@ body {
     background-color: #F2F2F2;
 }
 
+// Links
+a.text-primary:focus,
+a.text-primary:hover {
+    color: $primary-dark;
+}
+
+a.text-secondary:focus,
+a.text-secondary:hover {
+    color: $secondary-dark;
+}
+
+.wvfsbos-logo a:hover {
+    color: $primary;
+    text-decoration: none;
+}
+
+// Headings
 h1, h2, h3 {
     color: $primary;
     font-weight: $font-weight-light;
@@ -113,7 +146,6 @@ h4, h5, h6 {
 
 .listing-card .btn-details,
 .listing-details .btn-details {
-    background: $blue;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     color: white;
