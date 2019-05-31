@@ -50,19 +50,26 @@
             </div>{{--/ .listing-inner --}}
         </div>{{--/ .col --}}
 
-
         <div class="col-12 col-lg-3 text-center">
             <div class="row">
-                <div class="col-sm">
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-light py-2">Get More Details</div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong> for an audio tour</li>
-                            <li class="list-group-item">Text code <strong>{{ $listing->text_code }}</strong> to <strong>88000</strong> for a mobile tour</li>
-                        </ul>
+                @if (isset($listing->call_code) || isset($listing->text_code))
+                    <div class="col-sm col-lg-12">
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-light py-2">Get More Details</div>
+                            <ul class="list-group list-group-flush">
+                                @isset($listing->call_code)
+                                    <li class="list-group-item">Call <strong>800-757-8019</strong> and enter code <strong>{{ $listing->call_code }}</strong> for an audio tour</li>
+                                @endisset
+
+                                @isset($listing->text_code)
+                                    <li class="list-group-item">Text code <strong>{{ $listing->text_code }}</strong> to <strong>88000</strong> for a mobile tour</li>
+                                @endisset
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm">
+                @endif
+
+                <div class="col-sm col-lg-12">
                     <div class="card">
                         <div class="card-header bg-primary text-light py-2">Talk to a Live Person</div>
                         <ul class="list-group list-group-flush">
