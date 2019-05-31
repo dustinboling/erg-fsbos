@@ -22,7 +22,7 @@
                                 <a href="{{ route('listings.show', $featuredListing->id) }}">
                                     <img class="d-block w-100" src="{{ $featuredListing->getFirstMediaUrl('gallery','slide') }}" alt="{{ $featuredListing->city->name }}, {{ $featuredListing->state }} home for sale by owner">
                                 </a>
-                                <div class="carousel-caption d-none d-sm-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
+                                <div class="carousel-caption px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
                                     <h3 class="font-weight-bolder mb-0">
                                         {{ $featuredListing->beds }} Bed <span>&#8226;</span> {{ $featuredListing->baths }} Bath <span>&#8226;</span> {{ number_format($featuredListing->sqft) }}SF <span>&#8226;</span>
                                         @if ($featuredListing->status == 'pending')
