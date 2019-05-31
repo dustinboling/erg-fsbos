@@ -23,16 +23,16 @@
                                     <img class="d-block w-100" src="{{ $featuredListing->getFirstMediaUrl('gallery','slide') }}" alt="{{ $featuredListing->city->name }}, {{ $featuredListing->state }} home for sale by owner">
                                 </a>
                                 <div class="carousel-caption px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                                    <h3 class="font-weight-bolder mb-0">
+                                    <h5 class="font-weight-bolder mb-0 d-none d-sm-block">
                                         {{ $featuredListing->beds }} Bed <span>&#8226;</span> {{ $featuredListing->baths }} Bath <span>&#8226;</span> {{ number_format($featuredListing->sqft) }}SF <span>&#8226;</span>
                                         @if ($featuredListing->status == 'pending')
                                             <span class="text-warning">Pending Sale</span>
                                         @else
                                             ${{ number_format($featuredListing->price) }}
                                         @endif
-                                    </h3>
-                                    <h5 class="text-dark font-weight-normal mb-3">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h5>
-                                    <h4 class="text-dark font-weight-normal shadow-sm mb-0 mx-4">Text <span class="text-primary font-weight-bold">{{ $featuredListing->text_code }}</span> to <span class="text-primary font-weight-bold">88000</span> for an instant tour on your mobile device!</h4>
+                                    </h5>
+                                    <h6 class="text-dark font-weight-normal mb-0 mb-sm-3">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h6>
+                                    <h6 class="text-dark font-weight-normal shadow-sm mb-0 mx-4 d-none d-sm-block">Text <span class="text-primary font-weight-bold">{{ $featuredListing->text_code }}</span> to <span class="text-primary font-weight-bold">88000</span> for an instant tour on your mobile device!</h6>
                                 </div>
                             </div>
                         @endif
