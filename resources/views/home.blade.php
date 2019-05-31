@@ -32,7 +32,7 @@
                                         @endif
                                     </h5>
                                     <h6 class="text-dark font-weight-normal mb-0 mb-md-3">Home For Sale by Owner in {{ $featuredListing->city->name }}, {{ $featuredListing->state }}</h6>
-                                    <h6 class="text-dark font-weight-normal shadow-sm mb-0 mx-4 d-none d-md-block">Text <span class="text-primary font-weight-bold">{{ $featuredListing->text_code }}</span> to <span class="text-primary font-weight-bold">88000</span> for an instant tour on your mobile device!</h6>
+                                    <h5 class="text-dark font-weight-normal shadow-sm mb-0 mx-4 d-none d-md-block">Text <span class="text-primary font-weight-bold">{{ $featuredListing->text_code }}</span> to <span class="text-primary font-weight-bold">88000</span> for an instant tour on your mobile device!</h5>
                                 </div>
                             </div>
                         @endif
