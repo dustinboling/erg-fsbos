@@ -27,7 +27,7 @@
                     <h5 class="card-title">{{ $city->name }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Oregon</h6>
                 </div>
-                <a href="{{ route('cities.show', $city->slug) }}" class="btn btn-details py-2">Browse {{ $city->name }}</a>
+                <a href="{{ route('cities.show', $city->slug) }}" class="btn btn-primary btn-details py-2">Browse {{ $city->name }}</a>
             </div>
         </div>
         @endforeach
