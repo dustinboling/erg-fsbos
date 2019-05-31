@@ -12,14 +12,8 @@
             ]) }}
 
             @if ($loop->first)
-                <div class="carousel-caption d-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                    <h4 class="mb-0 font-weight-normal">Text the code <span style="font-family: 'futura-pt-condensed;font-weight:700;">{{ $listing->text_code }}</span> to the number <span style="font-family: 'futura-pt-condensed;font-weight:700;">88000</span> for an instant tour on your phone!</h4>
-                </div>
-            @elseif (Auth::guest())
                 <div class="carousel-caption d-none d-sm-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                    <h4 class="mb-0 font-weight-normal text-dark">
-                        <a href="{{ route('login') }}">Login</a> or <a href="{{ route('register') }}">Register</a> to View All Photos
-                    </h4>
+                    <h4 class="mb-0 font-weight-normal">Text the code <span style="font-family: 'futura-pt-condensed;font-weight:700;">{{ $listing->text_code }}</span> to the number <span style="font-family: 'futura-pt-condensed;font-weight:700;">88000</span> for an instant tour on your phone!</h4>
                 </div>
             @endif
         </div>

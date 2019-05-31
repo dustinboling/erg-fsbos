@@ -5,8 +5,8 @@
 @section('content')
 <div class="container listing-show">
     <div class="row listing">
-        <div class="col-md">
-            <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm">
+        <div class="col-md position-relative">
+            <div class="listing-inner d-flex flex-column bg-white rounded px-3 py-3 mb-4 shadow-sm blurrable">
                 <ul class="listing-details d-flex flex-column flex-md-row justify-content-between text-center list-unstyled p-3 mb-2 rounded">
                     <li class="price d-flex listing-detail rounded px-4">
                         <div class="align-self-center">
@@ -48,8 +48,29 @@
                     </div>
                 </div>
             </div>{{--/ .listing-inner --}}
+
+            {{-- Login Modal --}}
+            @guest
+                <div class="modal show d-block position-absolute text-center" id="loginModalCenter" role="dialog" aria-modal="true">
+                    <div class="modal-dialog shadow-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center border-light">
+                                <h5 class="modal-title" id="loginModalCenterTitle">Login or Register</h5>
+                            </div>
+                            <div class="modal-body" style="font-size: 1.125rem">
+                                Please log in or register to view all listing information.
+                            </div>
+                            <div class="modal-footer justify-content-center border-light">
+                                <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                                <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endguest
         </div>{{--/ .col --}}
 
+        {{-- Call & Text Code and Agent Info --}}
         <div class="col-12 col-lg-3 text-center">
             <div class="row">
                 @if (isset($listing->call_code) || isset($listing->text_code))

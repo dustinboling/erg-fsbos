@@ -13,7 +13,10 @@
                 {{-- Show the overlay to guests on secondary images --}}
                 @if (!$loop->first && Auth::guest())
                     <div class="carousel-caption d-block px-4" style="right:0;left:0;background-color:rgba(255,255,255,0.8)">
-                        <p class="mb-0 font-weight-normal text-dark"><a href="{{ route('login') }}">Login</a> or <a href="{{ route('register') }}">Register</a><br>to View All Photos</p>
+                        <p class="mb-0 font-weight-normal text-dark" style="font-size: 1.125rem">
+                            <a href="{{ route('login') }}">Login</a> or <a href="{{ route('register') }}">Register</a>
+                            <br>to View All Photos
+                        </p>
                     </div>
                 @endif
             </div>
