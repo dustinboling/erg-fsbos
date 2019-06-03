@@ -39,4 +39,7 @@ Route::resource('subscribe', 'SubscribersController');
 
 // Auth
 Auth::routes();
-Route::get('/my-account', 'UsersController@index')->name('users.account')->middleware('auth');
+Route::resource('users', 'UsersController')->middleware('auth')->only([
+    'edit', 'update'
+]);
+
