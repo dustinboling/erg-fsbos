@@ -50,10 +50,7 @@ class CitiesController extends Controller
      */
     public function show(City $city)
     {
-        if(!$city->live)
-        {
-            abort(404);
-        }
+        abort_unless($city->live, 404);
 
         $listings = $city->listings->where('live', true);
 
