@@ -55,7 +55,9 @@ class CitiesController extends Controller
             abort(404);
         }
 
-        return view('cities.show', compact('city'));
+        $listings = $city->listings->where('live', true);
+
+        return view('cities.show', compact('city', 'listings'));
     }
 
     /**

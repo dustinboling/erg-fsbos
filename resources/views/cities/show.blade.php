@@ -6,16 +6,16 @@
 <div class="container">
 
     {{--  LISTINGS BLOCK  --}}
-    @isset($city->listings)
+    @isset($listings)
     <div class="row my-5">
         <div class="col-md text-center">
             <h3 class="text-muted">
-                Here are <span style="font-weight:700">{{ $city->listings->count() }} </span> of the Latest Homes For Sale by Owner in {{ $city->name }}, {{ $city->state }}
+                Here are <span style="font-weight:700">{{ $listings->count() }} </span> of the Latest Homes For Sale by Owner in {{ $city->name }}, {{ $city->state }}
             </h3>
         </div>
     </div>
     <div class="row">
-        @each('listings.partials.listingcard', $city->listings, 'listing')
+        @each('listings.partials.listingcard', $listings, 'listing')
     </div>
     @endisset
 
