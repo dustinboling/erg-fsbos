@@ -35,6 +35,14 @@ class Listing extends Model implements HasMedia
     }
 
     /**
+     * Get all of the listing's views.
+     */
+    public function views()
+    {
+        return $this->morphMany('App\View', 'viewable');
+    }
+
+    /**
      * Register Spatie Medialibrary collections
      */
     public function registerMediaCollections()

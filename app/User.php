@@ -30,4 +30,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the views for the user.
+     */
+    public function views()
+    {
+        return $this->hasMany('App\View');
+    }
 }

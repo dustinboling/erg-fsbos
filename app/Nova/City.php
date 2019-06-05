@@ -10,6 +10,7 @@ use App\Nova\Filters\LiveCities;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use App\Nova\Metrics\CitiesCount;
+use Laravel\Nova\Fields\MorphMany;
 use App\Nova\Metrics\ListingsPerCity;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -75,7 +76,8 @@ class City extends Resource
                 ->thumbnail('square') // conversion used to display the image on the model's index page
                 ->singleImageRules('dimensions:min_width=512'), // validation rules for the collection of images
 
-            HasMany::make('Listings')
+            HasMany::make('Listings'),
+            MorphMany::make('Views'),
         ];
     }
 

@@ -35,6 +35,11 @@ class City extends Model implements HasMedia
     */
     protected $guarded = [];
 
+    public function listings()
+    {
+        return $this->hasMany('App\Listing', 'city_id', 'id');
+    }
+
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('slide')
@@ -51,8 +56,11 @@ class City extends Model implements HasMedia
         $this->addMediaCollection('main')->singleFile();
     }
 
-    public function listings()
+    /**
+     * Get all of the city's views.
+     */
+    public function views()
     {
-        return $this->hasMany('App\Listing', 'city_id', 'id');
+        return $this->morphMany('App\View', 'viewable');
     }
 }

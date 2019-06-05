@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Heading;
 use App\Nova\Filters\LiveListings;
 use App\Nova\Metrics\ListingCount;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphMany;
 use App\Nova\Filters\FeaturedListings;
 use App\Nova\Metrics\ListingsPerMonth;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -83,6 +84,8 @@ class Listing extends Resource
             new Panel('Location', $this->locationFields()),
             new Panel('Property Features', $this->featureFields()),
             new Panel('Photos', $this->photoField()), // validation rules for the collection of images
+
+            MorphMany::make('Views'),
         ];
     }
 
