@@ -50,6 +50,11 @@ class ListingsController extends Controller
      */
     public function show(Listing $listing)
     {
+        if(auth('web')->check())
+        {
+            event(new \App\Events\UserViewedListing(auth()->user(), $listing));
+        }
+
         if(!$listing->live)
         {
             abort(404);

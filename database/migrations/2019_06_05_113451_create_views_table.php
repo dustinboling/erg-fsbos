@@ -18,6 +18,7 @@ class CreateViewsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('viewable_id');
             $table->string('viewable_type');
+            $table->unsignedSmallInteger('user_views')->default(1);
             $table->timestamps();
         });
     }

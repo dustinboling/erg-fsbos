@@ -6,6 +6,7 @@ use App\Nova\City;
 use App\Nova\Listing;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
@@ -58,7 +59,15 @@ class View extends Resource
                 Listing::class,
                 City::class,
             ]),
-            DateTime::make('Created At')->exceptOnForms(),
+            Number::make('User Views')
+                ->sortable()
+                ->exceptOnForms(),
+            DateTime::make('Created At')
+                ->sortable()
+                ->exceptOnForms(),
+            DateTime::make('Updated At')
+                ->sortable()
+                ->exceptOnForms(),
         ];
     }
 
