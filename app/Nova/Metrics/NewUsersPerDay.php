@@ -2,13 +2,13 @@
 
 namespace App\Nova\Metrics;
 
-use App\Listing;
+use App\User;
 use Illuminate\Http\Request;
-use Laravel\Nova\Metrics\Value;
+use Laravel\Nova\Metrics\Trend;
 
-class ListingCount extends Value
+class NewUsersPerDay extends Trend
 {
-    public $name = "Listings";
+    public $name = "New Users per Day";
 
     /**
      * Calculate the value of the metric.
@@ -18,7 +18,8 @@ class ListingCount extends Value
      */
     public function calculate(Request $request)
     {
-        return $this->count($request, Listing::class);
+        return $this->countByDays($request, User::class)
+                    ->showLatestValue();
     }
 
     /**
@@ -31,10 +32,7 @@ class ListingCount extends Value
         return [
             30 => '30 Days',
             60 => '60 Days',
-            365 => '365 Days',
-            'MTD' => 'Month To Date',
-            'QTD' => 'Quarter To Date',
-            'YTD' => 'Year To Date',
+            90 => '90 Days',
         ];
     }
 
@@ -45,7 +43,7 @@ class ListingCount extends Value
      */
     public function cacheFor()
     {
-        return now()->addMinutes(5);
+        // return now()->addMinutes(1);
     }
 
     /**
@@ -55,6 +53,6 @@ class ListingCount extends Value
      */
     public function uriKey()
     {
-        return 'listing-count';
+        return 'new-users-per-day';
     }
 }

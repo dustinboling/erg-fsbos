@@ -6,8 +6,10 @@ use App\Listing;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Trend;
 
-class ListingsPerMonth extends Trend
+class NewListingsPerMonth extends Trend
 {
+    public $name = "New Listings per Month";
+
     /**
      * Calculate the value of the metric.
      *
@@ -40,7 +42,7 @@ class ListingsPerMonth extends Trend
      */
     public function cacheFor()
     {
-        //return now()->addMinutes(5);
+        return now()->addMinutes(5);
     }
 
     /**
@@ -50,6 +52,6 @@ class ListingsPerMonth extends Trend
      */
     public function uriKey()
     {
-        return 'listings-per-month';
+        return 'new-listings-per-month';
     }
 }

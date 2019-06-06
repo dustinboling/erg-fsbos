@@ -3,9 +3,6 @@
 namespace App\Providers;
 
 use Laravel\Nova\Nova;
-use Laravel\Nova\Cards\Help;
-use App\Nova\Metrics\CitiesCount;
-use App\Nova\Metrics\ListingCount;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -61,7 +58,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             //new Help,
-            (new ListingCount)->width('1/4'),
+            (new \App\Nova\Metrics\NewUsers)->width('1/3'),
+            (new \App\Nova\Metrics\NewListings)->width('1/3'),
         ];
     }
 

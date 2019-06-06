@@ -88,7 +88,10 @@ class User extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new Metrics\NewUsers)->width('1/3'),
+            (new Metrics\NewUsersPerDay)->width('2/3'),
+        ];
     }
 
     /**
