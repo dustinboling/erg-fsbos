@@ -130,7 +130,8 @@ class User extends Resource
             (new DownloadExcel)
                 ->withWriterType(Excel::CSV)
                 ->withHeadings()
-                ->withFilename('FSBO_BuyerLeads_' . date('Y-m-d_gia') . '.csv'),
+                ->withFilename('FSBO_BuyerLeads_' . date('Y-m-d_gia') . '.csv')
+                ->allFields()->except('id','email_verified_at','remember_token','password'),
         ];
     }
 }
