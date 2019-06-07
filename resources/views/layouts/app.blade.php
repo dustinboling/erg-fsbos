@@ -33,7 +33,7 @@
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('buyers') }}">{{ __('Buy') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('sellers') }}">{{ __('Sell') }}</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
-                        <li class="nav-item"><a class="nav-link text-nowrap" href="tel:5417996622">(541) 799-6622</a></li>
+                        <li class="nav-item"><a class="nav-link text-nowrap" href="tel:5417996622">(541) 526-4477</a></li>
                     </ul>
 
                     {{-- Right Side Of Navbar --}}
@@ -151,7 +151,7 @@
             <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
                 <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
                 <span class="px-1">&middot;</span>
-                <a href="tel:5417996622" class="text-light">(541) 799-6622</a>
+                <a href="tel:5417996622" class="text-light">(541) 526-4477</a>
             </div>{{-- /Copyright --}}
         </footer>
         {{-- Footer --}}

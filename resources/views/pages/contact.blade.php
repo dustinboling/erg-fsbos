@@ -42,7 +42,7 @@
                         <div class="card">
                             <div class="card-header">Call Us</div>
                             <div class="card-body">
-                                <h3 class="text-center">(541) 799-6622</h3>
+                                <h3 class="text-center">(541) 526-4477</h3>
                             </div>
                         </div>{{-- .card --}}
 
