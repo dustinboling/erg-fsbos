@@ -9,20 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class AssociateUserWithAgent
 {
     /**
-     * The user involved in the event.
-     *
-     * @var App\User
-     */
-    protected $user;
-
-    /**
-     * The agent the owns the listing involved in the event.
-     *
-     * @var App\Agent
-     */
-    protected $agent;
-
-    /**
      * Create the event listener.
      *
      * @return void
