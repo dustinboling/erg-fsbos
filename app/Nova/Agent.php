@@ -76,6 +76,8 @@ class Agent extends Resource
 
             HasMany::make('Listings'),
 
+            HasMany::make('Leads', 'leads', 'App\Nova\User'),
+
             MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
             MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class)
         ];

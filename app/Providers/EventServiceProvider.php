@@ -20,6 +20,7 @@ class EventServiceProvider extends ServiceProvider
         // ],
         'App\Events\UserViewedListing' => [
             'App\Listeners\AddViewToListing',
+            'App\Listeners\AssociateUserWithAgent',
         ],
     ];
 

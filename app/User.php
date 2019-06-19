@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\View');
     }
+
+    public function agent()
+    {
+        return $this->belongsTo('App\Agent');
+    }
 }

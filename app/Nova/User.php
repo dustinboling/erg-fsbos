@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphToMany;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
 
@@ -54,6 +55,8 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            BelongsTo::make('Agent')->nullable(),
 
             Gravatar::make(),
 

@@ -38,4 +38,12 @@ class Agent extends Authenticatable
     {
         return $this->hasMany('App\Listing');
     }
+
+    /**
+     * Get the assigned leads for the agent
+     */
+    public function leads()
+    {
+        return $this->hasMany('App\User');
+    }
 }

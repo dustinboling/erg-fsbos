@@ -27,7 +27,7 @@ class AddViewToListing
      */
     public function handle(UserViewedListing $event)
     {
-        $user = auth()->user();
+        $user = $event->user;
         $listing = $event->listing;
         $listingClass = get_class($event->listing); // eg. App\Listing
 
