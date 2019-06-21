@@ -11,7 +11,7 @@ class Agent extends Authenticatable
 {
     use HasRoles, Notifiable;
 
-    protected $guard = 'admin';
+    protected $guard = 'agent';
 
     /**
      * The attributes that are mass assignable.

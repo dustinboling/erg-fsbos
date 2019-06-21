@@ -14,6 +14,21 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
+Route::prefix('dashboard')->group(function() {
+    Route::name('agent.')->group(function () {
+        Route::get('/',             'Agent\DashboardController@index')->name('dashboard');
+        Route::get('/register',         'Agent\Auth\RegisterController@showRegistrationForm')->name('register');
+        Route::post('/register',        'Agent\Auth\RegisterController@register');
+        Route::get('/login',            'Agent\Auth\LoginController@showLoginForm')->name('login');
+        Route::post('/login',           'Agent\Auth\LoginController@login')->name('login.submit');
+        Route::get('/logout',           'Agent\Auth\LoginController@logout')->name('logout');
+        Route::post('/password/email',       'Agent\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+        Route::get('/password/reset',        'Agent\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::post('/password/reset',       'Agent\Auth\ResetPasswordController@reset');
+        Route::get('/password/reset/{token}','Agent\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    });
+});
+
 // Pages
 Route::get('/home', 'PagesController@home')->name('home');
 Route::get('/contact', 'ContactFormSubmissionsController@create')->name('contact');
@@ -41,5 +56,5 @@ Route::resource('subscribe', 'SubscribersController');
 Auth::routes();
 Route::resource('users', 'UsersController')->middleware('auth')->only([
     'edit', 'update'
-]);
+    ]);
 
