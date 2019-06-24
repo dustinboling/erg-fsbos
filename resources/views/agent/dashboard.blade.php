@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Agent Dashboard</h1>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-secondary">Agent Dashboard</h1>
         </div>
     </div>
 </div>

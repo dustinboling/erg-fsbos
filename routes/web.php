@@ -16,7 +16,10 @@ Route::get('/', function () {
 
 Route::prefix('dashboard')->group(function() {
     Route::name('agent.')->group(function () {
-        Route::get('/',             'Agent\DashboardController@index')->name('dashboard');
+        //Route::get('/',             'Agent\DashboardController@index')->name('dashboard');
+        Route::get('/', function () { // Temporary until dashboard is finished
+            return redirect()->route('agent.leads.index');
+        })->name('dashboard');
         Route::get('/register',         'Agent\Auth\RegisterController@showRegistrationForm')->name('register');
         Route::post('/register',        'Agent\Auth\RegisterController@register');
         Route::get('/login',            'Agent\Auth\LoginController@showLoginForm')->name('login');
@@ -26,6 +29,10 @@ Route::prefix('dashboard')->group(function() {
         Route::get('/password/reset',        'Agent\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         Route::post('/password/reset',       'Agent\Auth\ResetPasswordController@reset');
         Route::get('/password/reset/{token}','Agent\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+        Route::get('/leads',                 'Agent\LeadsController@index')->name('leads.index');
+        Route::get('/leads/{user}',          'Agent\LeadsController@show')->name('leads.show');
+        Route::get('/listings',              'Agent\ListingsController@index')->name('listings.index');
+        Route::get('/listings/{listing}',    'Agent\ListingsController@show')->name('listings.show');
     });
 });
 

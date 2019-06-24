@@ -17,7 +17,7 @@
 </head>
 <body class="@guest{{"guest"}}@endguest">
     <div id="app" class="h-100">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+        <nav class="navbar navbar-expand-md navbar-dark bg-secondary mb-4">
             <div class="container">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -28,11 +28,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('listings.index') }}">{{ __('Search') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('cities.index') }}">{{ __('Browse') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('buyers') }}">{{ __('Buy') }}</a></li>
-                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('sellers') }}">{{ __('Sell') }}</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
+                        {{-- <li class="nav-item mr-3"><a class="nav-link" href="{{ route('agent.dashboard') }}">{{ __('Dashboard') }}</a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="{{ route('agent.leads.index') }}">{{ __('My Leads') }}</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('agent.listings.index') }}">{{ __('My FSBOs') }}</a></li>
                     </ul>
 
                     {{-- Right Side Of Navbar --}}
@@ -48,9 +46,6 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('agent.dashboard') }}">{{ __('Dashboard') }}</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -99,11 +94,13 @@
         </main>
 
         {{-- Footer --}}
-        <footer class="page-footer font-small text-light bg-primary pt-4">
+        <footer class="font-small text-muted">
 
             {{-- Copyright --}}
-            <div class="footer-copyright text-center py-3 shadow-sm" style="background-color:#00000020">&copy; {{ date('Y') }}
-                <a class="text-light" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+            <div class="footer-copyright text-center">&copy; {{ date('Y') }}
+                <a class="" href="https://www.eugenerealtygroup.com/" target="_blank"> Eugene Realty Group LLC</a>
+                <span>&#8226;</span>
+                Made with <span style="font-size: .8em">❤️</span> by <a href="mailto:dustin@eugenerealtygroup.com" target="_blank">Dustin</a>. v0.1
             </div>{{-- /Copyright --}}
         </footer>
         {{-- Footer --}}
