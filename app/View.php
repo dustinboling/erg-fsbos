@@ -11,7 +11,9 @@ class View extends Model
      *
      * @var array
      */
-    protected $fillable = ['viewable_id', 'viewable_type'];
+    protected $fillable = [
+        'viewable_id', 'viewable_type', 'user_views'
+    ];
 
     /**
      * Get the user that owns the view.

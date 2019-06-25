@@ -49,8 +49,9 @@ class AddViewToListing
         {
             // create a new view record
             $view = $user->views()->create([
-                'viewable_id' => $event->listing->id,
+                'viewable_id'   => $event->listing->id,
                 'viewable_type' => $listingClass,
+                'user_views'    => 1,
             ]);
         }
     }
