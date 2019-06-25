@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 class LeadsController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void

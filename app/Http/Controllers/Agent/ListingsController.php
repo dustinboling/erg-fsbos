@@ -9,13 +9,22 @@ use App\Http\Controllers\Controller;
 class ListingsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
         $listingsGroupedByStatus = auth('agent')->user()->listings->sortByDesc('updated_at')->groupBy('status');
         return view('agent.listings.index', compact('listingsGroupedByStatus'));
     }
