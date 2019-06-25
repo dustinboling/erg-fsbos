@@ -38,7 +38,7 @@ class LeadsController extends Controller
     public function show(User $user)
     {
         $lead = $user;
-        $topViews = $lead->views->sortByDesc('user_views')->take(3);
+        $topViews = $lead->views->sortByDesc('user_views')->take(4);
         return view('agent.leads.show', compact('lead', 'topViews'));
     }
 }
