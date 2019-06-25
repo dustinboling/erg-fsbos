@@ -28,24 +28,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
                     <ul class="navbar-nav mr-auto">
-                        {{-- <li class="nav-item mr-3"><a class="nav-link" href="{{ route('agent.dashboard') }}">{{ __('Dashboard') }}</a></li> --}}
+                        @guest
+                        <li class="nav-item mr-3"><a class="nav-link" href="{{ route('agent.dashboard') }}">{{ __('Agent Dashboard') }}</a></li>
+                        @else
                         <li class="nav-item"><a class="nav-link" href="{{ route('agent.leads.index') }}">{{ __('My Leads') }}</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" href="{{ route('agent.listings.index') }}">{{ __('My FSBOs') }}</a></li>
+                        @endguest
                     </ul>
 
                     {{-- Right Side Of Navbar --}}
                     <ul class="navbar-nav ml-auto">
                         {{-- Authentication Links --}}
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('agent.login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('agent.register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('agent.register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
+                        @auth
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -55,7 +49,7 @@
                                 <a class="dropdown-item" href="{{ route('agent.logout') }}">{{ __('Logout') }}</a>
                             </div>
                         </li>
-                        @endguest
+                        @endauth
                     </ul>
                 </div> {{-- Collapsed on mobile --}}
             </div>
