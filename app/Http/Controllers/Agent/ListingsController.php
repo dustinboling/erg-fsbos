@@ -58,8 +58,9 @@ class ListingsController extends Controller
      */
     public function show(Listing $listing)
     {
+        $seller = $listing->seller;
         $images = $listing->getMedia('gallery');
-        return view('agent.listings.show', compact('listing','images'));
+        return view('agent.listings.show', compact('listing','seller','images'));
     }
 
     /**

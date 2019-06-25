@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        {{-- Property Owner --}}
+        {{-- Seller --}}
         <div class="col-6 py-3">
             <div class="card" style="">
                 <div class="card-header">Property Owner</div>
@@ -71,32 +71,19 @@
                         <tbody>
                             <tr>
                                 <th class="p-2" scope="row" colspan="2">
-                                    <h5 class="card-title mb-0">John Doe</h5>
+                                <h5 class="card-title mb-0">{{ $seller->name }}</h5>
                                 </th>
                             </tr>
                             <tr>
                                 <th class="p-2" scope="row">Phone</th>
-                                <td class="p-2"></td>
+                                <td class="p-2">{{ $seller->phone }}</td>
                             </tr>
                             <tr>
                                 <th class="p-2" scope="row">Email</th>
-                                <td class="p-2"></td>
+                                <td class="p-2">{{ $seller->email }}</td>
                             </tr>
-                            @if (!empty($lead->created_at))
-                            <tr>
-                                <th class="p-2" scope="row">Registered</th>
-                                <td class="p-2">{{ date_format($listing->created_at, 'M dS, Y \a\t g:i A') }}</td>
-                            </tr>
-                            @endif
-                            @if (!empty($lead->updated_at))
-                            <tr>
-                                <th class="p-2" scope="row">Updated</th>
-                                <td class="p-2">{{ date_format($listing->updated_at, 'M dS, Y \a\t g:i A') }}</td>
-                            </tr>
-                            @endif
                         </tbody>
                     </table>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
             </div>
         </div>
