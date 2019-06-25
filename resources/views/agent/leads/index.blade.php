@@ -18,7 +18,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Last Note</th>
+                                <th scope="col">Last Comment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,7 +32,13 @@
                                 </th>
                                 <td>{{ $lead->phone }}</td>
                                 <td>{{ $lead->email }}</td>
-                                <td><span class="badge badge-secondary">New</span></td>
+                                <td>
+                                    @if ($lead->comments->count() == 0)
+                                        <span class="badge badge-secondary">New</span>
+                                    @else
+                                        {{ $lead->comments->last()->content }}
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
