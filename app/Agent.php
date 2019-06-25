@@ -46,4 +46,12 @@ class Agent extends Authenticatable
     {
         return $this->hasMany('App\User');
     }
+
+    /**
+     * Get the comments created by the agent
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

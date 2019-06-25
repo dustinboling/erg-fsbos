@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Agent');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

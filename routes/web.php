@@ -33,6 +33,7 @@ Route::prefix('dashboard')->group(function() {
         Route::get('/leads/{user}',          'Agent\LeadsController@show')->name('leads.show');
         Route::get('/listings',              'Agent\ListingsController@index')->name('listings.index');
         Route::get('/listings/{listing}',    'Agent\ListingsController@show')->name('listings.show');
+        Route::post('comments/{user}',       'Agent\CommentController@store')->name('comments.store');
     });
 });
 

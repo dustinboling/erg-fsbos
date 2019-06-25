@@ -94,22 +94,27 @@
     <div class="row">
         <div class="col py-3">
             <div class="card">
-                <div class="card-header text-uppercase" style="letter-spacing:0.1em">Private Notes</div>
+                <div class="card-header text-uppercase" style="letter-spacing:0.1em">Private Comments</div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="{{ route('agent.comments.store', $lead) }}" method="POST">
+                        @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="type a new note..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input name="content" type="text" class="form-control" placeholder="type a new comment..." aria-label="Comment on lead" aria-describedby="button-addon-comment">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Note</button>
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon-comment">Add Comment</button>
                             </div>
                         </div>
                     </form>
-                    <article class="note p-3 shadow-sm rounded-sm mb-3">
-                        <small class="text-muted d-block mb-2">({{ date_format(new DateTime('2019-06-19 15:20:11'), 'M dS, Y \a\t g:i A') }}) Dustin added:</small>
-                        <p class="border-left pl-3 mb-0">Natus et provident. Sed vel dolorem aliquid ut. Vel rerum vel ab molestiae facilis quia neque quae. Iure est eum ipsum at rerum autem rerum et nihil. Nobis animi et cum est commodi dolores. Aut amet fugiat rerum voluptas quod.
-Eaque aut perferendis et nulla aliquid qui maxime commodi. Aliquid quia incidunt rem consequatur earum.
-Cum sequi ea et eius quis officiis.</p>
-                    </article>
+                    @foreach ($lead->comments->sortByDesc('created_at') as $comment)
+                        <article class="note p-3 mb-3">
+                            <div class="d-flex justify-content-between text-muted m-2">
+                                <small>{{ $comment->agent->name }} wrote:</small>
+                                <small>{{ date_format($comment->created_at, 'M dS, Y \a\t g:i A') }}</small>
+                            </div>
+
+                            <p class="border-left pl-3 mb-0">{!! $comment->content !!}</p>
+                        </article>
+                    @endforeach
                 </div>
             </div>
         </div>
