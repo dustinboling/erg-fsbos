@@ -27,6 +27,14 @@ class Listing extends Model implements HasMedia
     }
 
     /**
+     * Get the seller that owns the listing
+     */
+    public function seller()
+    {
+        return $this->belongsTo('App\Seller', 'seller_id', 'id');
+    }
+
+    /**
      * Get the city that owns the listing
      */
     public function city()

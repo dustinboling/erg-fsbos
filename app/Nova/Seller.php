@@ -4,23 +4,19 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Excel;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\MorphToMany;
-use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Seller extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\User';
+    public static $model = 'App\Seller';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -30,28 +26,20 @@ class User extends Resource
     public static $title = 'name';
 
     /**
-     * Get the displayable label of the resource
+     * The columns that should be searched.
+     *
+     * @var array
      */
-    public static function label()
-    {
-        return 'Buyers';
-    }
+    public static $search = [
+        'id', 'name',
+    ];
 
     /**
     * The logical group associated with the resource.
     *
     * @var string
     */
-    public static $group = 'Leads';
-
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
-    public static $search = [
-        'id', 'name', 'phone', 'email'
-    ];
+    public static $group = 'Listings';
 
     /**
      * Get the fields displayed by the resource.
@@ -63,9 +51,6 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            BelongsTo::make('Agent')->nullable(),
-
             Gravatar::make(),
 
             Text::make('Name')
@@ -73,23 +58,17 @@ class User extends Resource
                 ->rules('required', 'max:255'),
 
             Text::make('Phone')
-                ->rules('required', 'max:255'),
+                ->rules('max:255')
+                ->nullable(),
 
             Text::make('Email')
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->nullable()
+                ->rules('max:254')
+                ->creationRules('unique:sellers,email')
+                ->updateRules('unique:sellers,email,{{resourceId}}'),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
-
-            HasMany::make('Views'),
-
-            MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
-            MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
+            HasMany::make('Listings'),
         ];
     }
 
@@ -101,10 +80,7 @@ class User extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new Metrics\NewUsers)->width('1/3'),
-            (new Metrics\NewUsersPerDay)->width('2/3'),
-        ];
+        return [];
     }
 
     /**
@@ -137,12 +113,6 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            (new DownloadExcel)
-                ->withWriterType(Excel::CSV)
-                ->withHeadings()
-                ->withFilename('FSBO_BuyerLeads_' . date('Y-m-d_gia') . '.csv')
-                ->allFields()->except('id','email_verified_at','remember_token','password'),
-        ];
+        return [];
     }
 }

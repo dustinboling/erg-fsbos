@@ -2,7 +2,15 @@
 
 namespace App\Providers;
 
+use App\Nova\City;
+use App\Nova\User;
+use App\Nova\View;
+use App\Nova\Admin;
+use App\Nova\Agent;
+use App\Nova\Seller;
+use App\Nova\Listing;
 use Laravel\Nova\Nova;
+use App\Nova\SellerLead;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -47,6 +55,34 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             //     'shannon@eugenerealtygroup.com',
             // ]);
         });
+    }
+
+    /**
+     * Register the application's Nova resources.
+     *
+     * @return void
+     */
+    protected function resources()
+    {
+        // Auto register all resources in the Nova directory
+        //Nova::resourcesIn(app_path('Nova'));
+
+        // Manually register resources
+        Nova::resources([
+            // Leads
+            User::class,
+            SellerLead::class,
+
+            // Listings
+            City::class,
+            Seller::class,
+            Listing::class,
+            View::class,
+
+            // Users
+            Admin::class,
+            Agent::class,
+        ]);
     }
 
     /**

@@ -35,12 +35,10 @@ class CreateListingsTable extends Migration
 
             // foreign keys
             $table->foreign('agent_id')
-                    ->references('id')
-                    ->on('agents')
+                    ->references('id')->on('agents')
                     ->onDelete('cascade');
             $table->foreign('city_id')
-                    ->references('id')
-                    ->on('cities');
+                    ->references('id')->on('cities');
         });
     }
 

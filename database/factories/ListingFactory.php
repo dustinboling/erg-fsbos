@@ -6,6 +6,7 @@ $factory->define(App\Listing::class, function (Faker $faker) {
     $statuses = ['active','pending','sold'];
 
     return [
+        'seller_id' => rand(1,5),
         'agent_id' => rand(1,4),
         'city_id' => rand(1,30),
         'street_address' => $faker->buildingNumber() . " " . $faker->streetName(),

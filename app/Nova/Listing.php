@@ -48,7 +48,7 @@ class Listing extends Resource
     *
     * @var string
     */
-    public static $group = 'Content';
+    public static $group = 'Listings';
 
     /**
     * Get the fields displayed by the resource.
@@ -75,6 +75,7 @@ class Listing extends Resource
                 ->rules('required')
                 ->sortable(),
             BelongsTo::make('Agent'),
+            BelongsTo::make('Seller'),
             Number::make('Price')->rules('required')->sortable(),
             Text::make('Call Code')->hideFromIndex(),
             Text::make('Text Code')->hideFromIndex(),

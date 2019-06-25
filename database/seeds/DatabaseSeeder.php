@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminsTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
         $this->call(RolesAndPermissionsSeeder::class);
+        factory('App\Seller', 5)->create();
         factory('App\Listing', 48)->create();
     }
 }

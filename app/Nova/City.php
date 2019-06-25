@@ -47,7 +47,7 @@ class City extends Resource
     *
     * @var string
     */
-    public static $group = 'Content';
+    public static $group = 'Listings';
 
     /**
      * Get the fields displayed by the resource.
