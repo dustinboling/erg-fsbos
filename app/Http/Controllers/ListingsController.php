@@ -48,16 +48,13 @@ class ListingsController extends Controller
      * @param  \App\Listing  $listing
      * @return \Illuminate\Http\Response
      */
-    public function show(Listing $listing)
+    public function show(Listing $listing, Request $request)
     {
+        abort_unless($listing->live, 404);
+
         if(auth('web')->check())
         {
             event(new \App\Events\UserViewedListing(auth()->user(), $listing));
-        }
-
-        if(!$listing->live)
-        {
-            abort(404);
         }
 
         $images = $listing->getMedia('gallery');
