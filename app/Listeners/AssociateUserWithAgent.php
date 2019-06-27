@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\UserViewedListing;
+use App\Notifications\NewBuyerLead;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -33,6 +34,8 @@ class AssociateUserWithAgent
             // associate the user with the listing agent
             $event->user->agent()->associate($event->listing->agent);
             $event->user->save();
+
+            $event->user->agent->notify(new NewBuyerLead($event->user));
         }
     }
 }
