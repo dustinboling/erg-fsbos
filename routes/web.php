@@ -51,6 +51,9 @@ Route::get('/search', 'ListingsController@search')->name('listings.search');
 
 // Cities
 Route::get('/cities', 'CitiesController@index')->name('cities.index');
+Route::get('/homes-for-sale-by-owner', function () {
+    return redirect()->route('cities.index');
+});
 Route::get('/homes-for-sale-by-owner/{city}', 'CitiesController@show')->name('cities.show');
 
 // Leads
