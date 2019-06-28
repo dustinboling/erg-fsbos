@@ -25,7 +25,7 @@ class LeadsController extends Controller
      */
     public function index(Request $request)
     {
-        $leads = auth('agent')->user()->leads;
+        $leads = auth('agent')->user()->leads->sortByDesc('created_at');
         return view('agent.leads.index', compact('leads'));
     }
 
