@@ -61,11 +61,13 @@ class City extends Resource
             ID::make()->sortable(),
             Boolean::make('Live')->sortable(),
             TextWithSlug::make('City Name', 'name')
-                ->slug('URL Slug')
+                ->slug('slug')
                 ->rules('required')
                 ->sortable(),
             Text::make('State'),
-            Slug::make('URL Slug', 'slug')
+            Slug::make('Slug')
+                ->disableAutoUpdateWhenUpdating()
+                ->showUrlPreview('https://willamettevalleyfsbos.com/homes-for-sale-by-owner')
                 ->rules('required'),
             Text::make('SEO Title', 'title')
                 ->rules('required'),
