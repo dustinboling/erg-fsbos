@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Willamette Valley FSBOs - Home For Sale in {{ $listing->city }}')
+@section('title', 'Willamette Valley FSBOs - Home For Sale in ' $listing->city->name)
 
 @section('content')
 <div class="container listing-show">
