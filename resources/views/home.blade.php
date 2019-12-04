@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-9 mb-4">
+        <div class="col-md-9 mb-4 md-mb-0">
             {{--  CAROUSEL  --}}
             <div id="carouselHomeIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                 {{--
@@ -78,7 +78,7 @@
 
     {{--  LISTINGS BLOCK  --}}
     @isset($listings)
-    <div class="row py-5">
+    <div class="row py-4">
         <div class="col-md text-center">
             <h3 class="text-muted">
                 Here are <span style="font-weight:700">{{ $listings->count() }} </span> of the Latest Homes For Sale by Owner in the Willamette Valley
