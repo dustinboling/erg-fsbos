@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Willamette Valley Homes For Sale by Owner - Willamette Valley FSBOs')
+@section('title', 'Oregon Homes For Sale by Owner - FSBO Rocket')
 
 @section('content')
 <div class="container">
@@ -13,7 +13,7 @@
                 @isset($listings)
                     Here are <span style="font-weight:700">{{ $listings->count() }} </span>
                 @endisset
-                For Sale by Owner Listings in the Willamette Valley
+                For Sale by Owner Listings in Oregon
             </h3>
         </div>
     </div>

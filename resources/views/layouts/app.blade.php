@@ -23,7 +23,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand wvfsbos d-md-none" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder">FSBOs</span>.com</a>
+                <a class="navbar-brand wvfsbos d-md-none" href="{{ route('home') }}">FSBO<span class="font-weight-bolder">Rocket</span>.com</a>
                 {{-- Collapsed on mobile: --}}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{-- Left Side Of Navbar --}}
@@ -77,9 +77,9 @@
                 <div class="row py-4">
                     <div id="wvfsbos" class="col-7 d-none d-md-block" style="line-height: 1.2;">
                         <p class="wvfsbos-logo mb-0">
-                            <a class="text-secondary" href="{{ route('home') }}">WillametteValley<span class="font-weight-bolder text-primary">FSBOs</span>.com</a>
+                            <a class="text-secondary" href="{{ route('home') }}">FSBO<span class="font-weight-bolder text-primary">Rocket</span>.com</a>
                         </p>
-                        <p class="mb-0 text-muted"><em>The Most Complete Collection of Homes For Sale by Owner in the Willamette Valley</em></p>
+                        <p class="mb-0 text-muted"><em>Discover Homes For Sale by Owner in Oregon</em></p>
                     </div>
                     <div class="col ml-auto" style="line-height: 1.2;">
                         <div class="card sponsor text-center">
